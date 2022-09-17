@@ -1,0 +1,66 @@
+version: '3.7'
+
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    image: i_api
+    restart: always
+    container_name: c_api
+    command: /usr/src/app/node_modules/.bin/nodemon index.js
+    volumes:
+      - ./api/:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV: development
+      - DB_HOST: database
+      - DB_PORT: 5432
+      - DB_USER: postgres
+      - DB_PASSWORD: postgres
+      - DB_NAME: postgres
+    depends_on:
+      - database
+    networks:
+     - app-network
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - data-volume:/data/db
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+  client:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    image: i_client
+    container_name: c_client
+    command: npm start
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./client/:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - api
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+networks:
+    app-network:
+        driver: bridge
+
+volumes:
+    data-volume:
+    node_modules:
+    web-root:
+      driver: local
