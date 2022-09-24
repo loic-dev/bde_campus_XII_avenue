@@ -2,13 +2,18 @@
 
 :root{
     /*global color */
-    --home-bg-color: #06001C;
-    --main_orange: #FA8F21;
+    --primary-color: #06001C;
+    --secondary-color: #120D27;
+    --tertiary-color: #1E1932;
+    --main_white:#FFFFFF;
+    --main_orange: #EB5D0B;
     --main_pink:#fe71c9;
 
 
     /* breakpoint */
-    --laptop:1280px;
-    --mobile:768px;
+    --laptop-min:1024px;
+    --tablet-max:1023px;
+    --tablet-min:768px;
+    --mobile-max:767px;
 }
 

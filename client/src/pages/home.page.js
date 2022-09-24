@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { HeaderComponent } from "../components/header.component"
+import { HeaderComponent } from "../components/header/header.component"
 
 export const HomePage = () => {
 

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import "./header.style.css";
+
 
 export const HeaderComponent = () => {
     return (
@@ -6,7 +8,7 @@ export const HeaderComponent = () => {
             <div className="logo">
                 <img></img>
             </div>
-            <div className="link">
+            <div className="link-container">
                 <ul>
                     <li>
                         <Link to="/events">evenements</Link>
