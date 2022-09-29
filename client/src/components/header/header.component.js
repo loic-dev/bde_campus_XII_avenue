@@ -22,6 +22,7 @@ export const HeaderComponent = () => {
                         <span onClick={() => setHeaderMobile(!headerMobile)}><FontAwesomeIcon className="mobileMenuIcon"  icon={headerMobile ? faTimes : faBars}/></span>
                     </div>
                 </div>
+                <div className="border-mobile-container"><span className={`border-mobile ${headerMobile ? "open" : "close"}`} ></span></div>
                 <div className={`link-container ${headerMobile ? "open" : "close"}`}>
                     <ul>
                         <li>
