@@ -1,4 +1,5 @@
 import { HeaderComponent } from "../components/header/header.component"
+import { RowPanelHome } from "../components//rowPanelHome/rowPanelHome.component"
 import './home.style.scss';
 
 
@@ -17,9 +18,7 @@ export const HomePage = () => {
                 </div>
             </div>
             
-            
-
-
+            <RowPanelHome  page="homePage"/>
         </section>
         
     )
