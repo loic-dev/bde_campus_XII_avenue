@@ -1,6 +1,8 @@
 import { HeaderComponent } from "../components/header/header.component"
 import { RowPanelHome } from "../components//rowPanelHome/rowPanelHome.component"
 import './home.style.scss';
+import { PartnerList } from "../components/partnerList/partnerList.component";
+import { BdeDescription } from "../components/bdeDescription/bdeDescription.component";
 
 
 export const HomePage = () => {
@@ -17,8 +19,9 @@ export const HomePage = () => {
                     
                 </div>
             </div>
-            
+            <PartnerList/>
             <RowPanelHome  page="homePage"/>
+            <BdeDescription/>
         </section>
         
     )

@@ -1,0 +1,22 @@
+@import "./../../utils/global.style.scss";
+
+.bdeDescription{
+    background-color: $primary-color;
+}
+
+.bdeDescription h2{
+    color: #EB5D0B; 
+    text-align: center;
+}
+
+.bdeDescription .component { 
+    margin : 100px;
+    background-color: rgba(235, 106, 15,0.3);
+    border-radius: 10px;
+}
+
+;.bdeDescription .component div {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 20px;
+}

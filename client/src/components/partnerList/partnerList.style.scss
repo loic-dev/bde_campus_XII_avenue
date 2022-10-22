@@ -1,0 +1,45 @@
+.partnerList {
+    padding-top: 3rem;
+}
+
+.partnerList .list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.partnerList .list div {
+    background-color: gray;
+    min-width: 120px;
+    min-height: 120px;
+    border-radius: 10px;
+    margin: 25px;
+    transition: 0.5s;
+}
+
+
+
+.partnerList h1{
+    color : #EB5D0B;
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 160%;
+}
+
+@media only screen and (max-width:550px) {
+    .partnerList .list div {
+        min-width: 100px;
+        min-height: 100px;
+        border-radius: 10px;
+        margin: 15px;
+    }
+}
+
+@media only screen and (max-width:490px) {
+    .partnerList .list div {
+        min-width: 70px;
+        min-height: 70px;
+        border-radius: 10px;
+        margin: 12px;
+    }
+}

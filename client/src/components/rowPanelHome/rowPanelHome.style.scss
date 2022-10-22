@@ -1,0 +1,61 @@
+@import "./../../utils/global.style.scss";
+
+.rowPanelHome{
+    background-color: $tertiary-color;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 200px;
+    padding: 2rem;
+    padding-left: 5rem;
+    padding-right: 4rem;
+}
+
+.rowPanelHome div{
+    margin: 20px;
+}
+
+.rowPanelHome h1 {
+    color : #EB5D0B;
+    padding-left: 18px;
+}
+
+.rowPanelHomeImage {
+    background-color: #C4C4C4;
+    border-radius: 5px;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+
+@media only screen and (max-width: 1200px) {
+    .rowPanelHome{
+        flex-direction: column;
+    }
+
+    .rowPanelHome div{
+        margin: auto;
+    }
+
+    .rowPanelHomeImage{
+        min-width: 400px;
+        max-width: 400px;
+        min-height: 300px;
+        max-height: 300px;
+    }
+  }
+
+  @media only screen and (max-width:600px) {
+    .rowPanelHome{
+        padding: 1rem;
+    }
+
+    .rowPanelHomeImage{
+        min-width: 300px;
+        max-width: 300px;
+        min-height: 200px;
+        max-height: 200px;
+    }
+  }
