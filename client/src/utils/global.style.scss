@@ -12,3 +12,8 @@ $laptop-max:1280px;
 $tablet-max:1023px;
 $tablet-min:768px;
 $mobile-max:767px;
+
+.rowContainer{
+    display: flex;
+    justify-content: center;
+}
