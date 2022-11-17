@@ -21,7 +21,7 @@ export const HomePage = () => {
             </div>
             <PartnerList/>
             <RowPanelHome  page="homePage"/>
-            <BdeDescription/>
+            <BdeDescription/> 
         </section>
         
     )
