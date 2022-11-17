@@ -25,77 +25,6 @@
     border-radius: 10px;
  }
 
-
-.eventHeader {
-   margin: auto;
-   width: 100%;
-   text-align: center;
-   margin-bottom: 50px;
-}
-
- .eventHeader img {
-   max-width: 75%;
-   margin: auto;
-   border-radius: 20px;
- }
-
- .infoNextEvent {
-   z-index: 0;
-   background-color: $secondary-color;
-   margin:auto;
-   margin-top: -120px;
-   width: 50%;
-   position: relative;
-   border-radius: 15px;
-   height: 185px;
-   display: flex;
-   align-items: center;
-   padding-right: 0px;
- }
-
- .infoNextEventImg{
-   min-width: 120px;
-   min-height: 120px;
-   border-radius: 10px;
-   background-color:aliceblue;
-   margin-left: 38px;
-   margin-right: 38px;
- } 
-
- .infoNextEventChild {
-   display: flex;
-   margin-top: 50px;
-   line-height: 100px;
- }
-
- .infoNextEventBtn {
-   padding-left: 120px;
- }
- 
- .infoNextEventDesc {
-   height: 120px;
-   width: auto;
- }
-
- .infoNextEvent button{
-   padding: 5px;
-   background-color: white;
-   border-radius: 12px;
-   color: gray;
-   text-align: center;
-   width: 145px;
-   height: 40px;
-   font-size: 110%;
-   cursor: pointer;
-   margin-left: 16px;
- }
-
-.infoNextEventTitle{
-   font-size: 150%;
-   float: left;
-}  
-
-
  .eventInscription {
     background-color: aliceblue;
     width: 180px;
@@ -127,18 +56,6 @@
    font-weight: bold;
    font-size: 120%;
  }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
  @media only screen and (max-width: $laptop-max) {
@@ -223,9 +140,15 @@
    }
 }
 
-@media only screen and (max-width : 675px) {
+@media only screen and (max-width : $laptop-min) {
+
+   .listEvent h2 {
+      margin-top: 50px;
+      margin-bottom: 60px;
+  }
+
    .event {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
    }
    
    .allEvent {
@@ -246,7 +169,7 @@
       border-radius: 7px;
       font-size: 100%;
       line-height: 32px;
-      margin-top: 160px;
+      margin-top: 220px;
    }
 
    .eventTitle {
