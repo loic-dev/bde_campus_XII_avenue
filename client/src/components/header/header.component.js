@@ -26,7 +26,7 @@ export const HeaderComponent = () => {
                 <div className={`link-container ${headerMobile ? "open" : "close"}`}>
                     <ul>
                         <li>
-                            <Link className="link" to="/events">
+                            <Link className="link" to="/evenements">
                                 <AiFillCalendar className="linkIcon" fontSize={"1.4rem"}/>
                                 <span>événements</span>
                                 <FontAwesomeIcon className="chevronLinkIcon"  icon={faChevronRight}/>

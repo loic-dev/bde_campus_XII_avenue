@@ -1,0 +1,183 @@
+@import "./../../utils/global.style.scss";
+
+.listEvent h2{
+    color : $main_orange ;
+    text-align: center; 
+    margin-top: 80px;
+    margin-bottom: 80px;
+    font-size: 200%;
+}
+
+.allEvent {
+    display: flex;
+    flex-wrap: wrap;
+    gap : 180px;
+    margin-left: 30px;
+    margin-right: 30px;
+    justify-content: center;
+    transition: 1s;
+ }
+
+ .allEvent .event {
+    width: 260px;
+    height: 260px;
+    background-color: rgb(167, 165, 165);
+    border-radius: 10px;
+ }
+
+ .eventInscription {
+    background-color: aliceblue;
+    width: 180px;
+    height: 50px;
+    border-radius: 7px;
+    color: black;
+    text-align: center;
+    font-size: 110%;
+    line-height: 50px;
+    margin: auto;
+    margin-top: 235px;
+ }
+
+ .eventInformation { 
+   text-indent: 10px;
+ }
+
+
+ .eventTitle {
+   font-size: 150%;
+   font-weight: bold;
+   margin: 0px;
+ }
+
+ .eventDate {
+   margin-top: 12px;
+   margin-bottom: 5px;
+   padding: 0px;
+   font-weight: bold;
+   font-size: 120%;
+ }
+
+
+ @media only screen and (max-width: $laptop-max) {
+   .allEvent {
+      gap : 120px;
+      margin-left: 30px;
+      margin-right: 30px;
+   }
+  
+   .allEvent .event {
+      width: 240px;
+      height: 240px;
+      border-radius: 10px;
+   }
+  
+   .eventInscription {
+      width: 160px;
+      height: 40px;
+      border-radius: 7px;
+      font-size: 110%;
+      line-height: 40px;
+      margin-top: 220px;
+   }
+  
+   .eventInformation { 
+     text-indent: 10px;
+   }
+}
+
+@media only screen and (max-width : $laptop-min) {
+   .event {
+      margin-bottom: 33px;
+   }
+   
+   .allEvent {
+      gap : 100px;
+      margin-left: 25px;
+      margin-right: 25px;
+   }
+  
+   .allEvent .event {
+      width: 200px;
+      height: 200px;
+      border-radius: 10px;
+   }
+  
+   .eventInscription {
+      width: 130px;
+      height: 35px;
+      border-radius: 7px;
+      font-size: 110%;
+      line-height: 35px;
+      margin-top: 180px;
+   }
+}
+
+
+@media only screen and (max-width: $laptop-max) {
+   .allEvent {
+      gap : 120px;
+      margin-left: 30px;
+      margin-right: 30px;
+   }
+  
+   .allEvent .event {
+      width: 240px;
+      height: 240px;
+      border-radius: 10px;
+   }
+  
+   .eventInscription {
+      width: 160px;
+      height: 40px;
+      border-radius: 7px;
+      font-size: 110%;
+      line-height: 40px;
+      margin-top: 220px;
+   }
+  
+   .eventInformation { 
+     text-indent: 10px;
+   }
+}
+
+@media only screen and (max-width : $laptop-min) {
+
+   .listEvent h2 {
+      margin-top: 50px;
+      margin-bottom: 60px;
+  }
+
+   .event {
+      margin-bottom: 30px;
+   }
+   
+   .allEvent {
+      gap : 70px;
+      margin-left: 0px;
+      margin-right: 0px;
+   }
+  
+   .lallEvent .event {
+      width: 180px;
+      height: 180px;
+      border-radius: 10px;
+   }
+  
+   .eventInscription {
+      width: 125px;
+      height: 32px;
+      border-radius: 7px;
+      font-size: 100%;
+      line-height: 32px;
+      margin-top: 220px;
+   }
+
+   .eventTitle {
+      font-size: 120%;
+ 
+    }
+   
+    .eventDate {
+      font-size: 100%;
+    }
+}
