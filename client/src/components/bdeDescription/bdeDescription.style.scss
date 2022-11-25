@@ -1,0 +1,69 @@
+@import "./../../utils/global.style.scss";
+
+.bdeDescription{
+    background-color: rgba(235, 106, 15,0.3);
+    margin: 40px;
+    border-radius: 9px;
+    max-width: $laptop-max;
+}
+
+.bdeDescription h2{
+    color: #EB5D0B; 
+    text-align: center;
+    padding-top: 40px;
+}
+
+.bdeDescription .component { 
+    border-radius: 10px;
+    display: flex;
+}
+
+.bdeDescription .component div {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.bdeDescription img {
+    max-width: 380px;
+    height: auto;
+}
+
+.bdeDescriptionTxt{ 
+    margin-top: 70px;  
+    padding-bottom: 40px; 
+    padding-left: 50px; 
+}
+
+
+@media only screen and (max-width: $laptop-min) {
+    .bdeDescription  img{
+        display: none;
+    }
+
+    .bdeDescriptionTxt{ 
+        margin-top: 10px;  
+        padding-left: 30px;
+        padding-right: 30px;  
+    }
+}
+
+
+@media only screen and (max-width: $mobile-max) {
+    .bdeDescription{
+        margin: 20px;
+    }
+
+    .bdeDescription h2{
+        padding-top: 10px;
+    }
+    
+    .bdeDescription  img{
+        display: none;
+    }
+
+    .bdeDescriptionTxt{ 
+        margin-top: 5px;  
+        padding-left: 10px;
+        padding-right: 10px;  
+    }    
+}

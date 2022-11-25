@@ -1,0 +1,226 @@
+@import "./../../utils/global.style.scss";
+
+
+$headerHeight: 70px;
+
+
+.header{
+    color: $main_white;
+    background-color: $primary-color;
+}
+
+.header-container{
+    position: relative;
+}
+
+.border-mobile-container{
+    position: relative;
+    height: 2px;
+    display: flex;
+    margin: 0 5px;
+    z-index: 10;
+
+    .border-mobile{
+        height: 2px;
+        width: 0;
+        overflow: hidden;
+        transition-duration: 0.3s;
+        background-color: white;
+
+        &.open{
+            width: 100%;
+        }
+    }
+}
+
+
+
+
+.container{
+    display: flex;
+    position: relative;
+    z-index:1;
+    height: $headerHeight;
+    padding: 0 30px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $primary-color;
+}
+
+
+
+.mobileMenuIconContainer{
+    display: block;
+
+    .mobileMenuIcon{
+        font-size: 20px;
+    }
+}
+
+
+
+.link-container{
+    background-color: $secondary-color;
+    overflow: hidden;
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    max-height: 0;
+    top: $headerHeight;
+    z-index: 2;
+    transition: all ease-in-out 0.3s;
+    padding: 0 25px;
+    border-radius: 0 0 15px 15px;
+
+    &.open{
+        max-height: 50vh ;
+    }
+
+    ul{
+        padding: 10px 0;
+        margin: 0;
+
+        li{
+            list-style: none;
+            padding: 15px 0;
+            border-bottom: 2px solid $tertiary-color;
+
+            &:last-child{
+                border: none;
+            }
+
+            a{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                color: $main_white;
+                text-decoration: none;
+                font-family: 'Montserrat';
+                margin-left: 10px;
+            }
+
+            span{
+                margin-left: 10px;
+            }
+
+            .linkIcon{
+                display: none;
+            }
+
+            
+        }
+
+        .link{
+            color: $main_white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-decoration: none;
+            justify-content: space-between;
+            margin: 0 10px;
+
+            span{
+                font-weight: 400;
+                font-size: 1.1rem;
+                font-family: 'Montserrat';
+                text-transform: capitalize;
+                
+            }
+
+            .chevronLinkIcon{
+                font-size: 0.8em;
+            }
+            
+        }
+
+        
+    }
+}
+
+
+
+
+//desktop and tablet
+@media screen and (min-width:$tablet-min){
+
+    .header{
+        display: flex;
+        justify-content: center;
+    }
+    
+    .header-container{
+        display: flex;
+        width: $laptop-max;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+
+    .border-mobile-container{
+        display: none;
+    }
+    
+    
+    .container{
+        height: 85px;
+        padding: 0;
+    }
+    
+
+    .mobileMenuIconContainer{
+        display: none;
+    }
+
+
+    .link-container{
+        position:static;
+        background-color: transparent;
+        border-radius:0;
+        max-height: 100%;
+        padding:0;
+
+        ul{
+            display: flex;
+            padding: 0;
+
+            li{
+                border: none;
+
+                .linkIcon{
+                    display: flex;
+                    padding-bottom: 2px;
+                }
+
+                
+
+                span{
+                    border-bottom: 2px solid $primary-color;
+
+                    &:hover{
+                        border-color: $main_white;
+                    }
+                }
+
+                &.social{
+                    span{
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .chevronLinkIcon{
+            display: none;
+        }
+        
+    }
+
+
+
+}
+
+
+
+
