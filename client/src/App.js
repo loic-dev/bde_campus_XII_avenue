@@ -6,6 +6,7 @@ import {
   } from "react-router-dom";
 import { HomePage } from './pages/home.page';
 import { EventPage } from './pages/event.page';
+import { AdminPage } from './pages/admin.page';
 
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
     {
       path: "/evenements",
       element: <EventPage />,
+    },
+    {
+      path: "/administration",
+      element: <AdminPage />,
     },
   ]);
 

@@ -1,0 +1,18 @@
+@import "./../utils/global.style.scss";
+
+.adminPage{
+    background-color: $primary-color;
+    height: 100%;
+}
+
+.adminStructure {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+@media screen and (max-width:$mobile-max){
+    .adminStructure {
+        flex-direction: column;
+    }
+}
