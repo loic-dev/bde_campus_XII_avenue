@@ -10,8 +10,8 @@ export const AdminPage = () => {
             <h1>Espace Administrateur</h1>
             <div className="adminStructure">
                 <div><NavAdmin/></div>
-                <div>AdminContent</div>
-            </div>
+                <div className="adminContent">AdminContent</div>
+            </div>   
         </section>  
     )
   
