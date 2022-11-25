@@ -1,4 +1,5 @@
 import { HeaderComponent } from "../components/header/header.component"
+import { NavAdmin } from "../components/navAdmin/navAdmin.component"
 import './admin.style.scss';
 
 export const AdminPage = () => {
@@ -8,7 +9,7 @@ export const AdminPage = () => {
             <HeaderComponent/>
             <h1>Espace Administrateur</h1>
             <div className="adminStructure">
-                <div>AdminNav</div>
+                <div><NavAdmin/></div>
                 <div>AdminContent</div>
             </div>
         </section>  
