@@ -1,0 +1,19 @@
+{
+    "register":{
+        "email":"test@test.com",
+        "username":"test-test",
+        "password":"Test2022",
+        "phone":"0770353380",
+        "email2":"test2@test.com",
+        "username2":"test2-test2"
+    },
+    "login":{
+        "username":"test-test",
+        "email":"test@test.com",
+        "password":"Test2022",
+        "badPassword":"Test2023",
+        "badUsername":"test",
+        "email_userNotConfirmed":"test2@test.com",
+        "username_userNotConfirmed":"test2-test2"
+    }
+}
