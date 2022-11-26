@@ -23,12 +23,12 @@ export const getUserById = async (userId) => {
 }
 
 export const getUserByUsername = async (username) => {
-    return database.query("SELECT * FROM users WHERE username = $1 ALLOW FILTERING",[username])
+    return database.query("SELECT * FROM users WHERE username = $1",[username])
     
 }
 
 export const getUserByEmail = async (email) => {
-    return database.query("SELECT * FROM users WHERE email = $1 ALLOW FILTERING",[email]);
+    return database.query("SELECT * FROM users WHERE email = $1",[email]);
 }
 
 
