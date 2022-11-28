@@ -48,6 +48,7 @@
 
 .headOneAdminEvent .dotImg{
     width: 25px;
+    cursor: pointer;
 }
 
 .imgAdminEvent{
@@ -63,4 +64,40 @@
     justify-content: space-between;
     margin-top: 12px;
     margin-bottom: 12px;
+}
+
+/********** Gerer l'evenement**********/
+
+.optionActive{
+    width: 320px;
+    height: 400px;
+    padding: 20px !important;
+    position: fixed;
+    background-color: $primary-color;
+    opacity: 0.6;
+    border-radius: 6px;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+
+.optionEventAdmin{
+    position: fixed;
+    background-color: $tertiary-color;
+    width: 200px;  
+    border-radius: 6px;
+    margin-left: 90px;
+    margin-top: 25px;
+}
+
+.optionEventAdmin div {
+    padding: 10px;
+}
+
+.modifierOptionEventAdmin{
+    border-bottom: solid 2px $primary-color;
+}
+
+.inscriptionOptionEventAdmin{
+    border-bottom: solid 2px $primary-color;
 }

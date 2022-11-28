@@ -3,6 +3,9 @@ import dotImg from "../../images/dots.png"
 
 export const EventAdmin = () => {
 
+    function optionAdminEvent(){
+        console.log("TestOk");
+    }
     return (
         <div className="eventAdmin">
             <div className="headEventAdmin">
@@ -11,9 +14,15 @@ export const EventAdmin = () => {
             </div>
             <div className="allAdminEvent">
                 <div className="oneAdminEvent">
+                    <div className="optionActive"></div>
+                    <div className="optionEventAdmin">
+                        <div className="modifierOptionEventAdmin">{">"} Modifier</div>
+                        <div className="inscriptionOptionEventAdmin">{">"} Inscription</div>
+                        <div className="supprimerOptionEventAdmin">{">"} Supprimer</div>
+                    </div>
                     <div className="headOneAdminEvent">
                         <div>Soirée loft</div>
-                        <img className="dotImg" src={dotImg}/>
+                        <img className="dotImg" alt="Apres click affiche les options modifier et supprimer" src={dotImg} onClick={optionAdminEvent}/>
                     </div>
                     <div className="imgAdminEvent">
                     </div>
