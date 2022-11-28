@@ -50,7 +50,7 @@ export const createPanelService = async (req,res) => {
         }
         return res.status(200).send({text:"partner deleted successfully"});
     } catch (error) {
-        console.log("Error delete partner : ", error)
+        console.log("Error delete partner : ", error)*/
         return res.status(403).send({error: "Something went wrong while deleting partner"});
-    }*/
+    //}
 }

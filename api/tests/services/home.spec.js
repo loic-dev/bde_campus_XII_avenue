@@ -2,6 +2,8 @@ import request from 'supertest';
 import {app} from '../../index.js';
 import constants from '../utils/constants.util.json'
 import { createToken } from '../utils/functions.util.js';
+var path = require('path');
+
 
 export const testHome = () => {
 
@@ -81,11 +83,17 @@ export const testHome = () => {
 
         test("home - post partner", async () => {
             let token = await createToken(constants.register.email,false)
-            const res = await request(app).post("/api/partner/create").set({Authorization:'bearer '+token}).send({})
+            
+            let filename = path.resolve(__dirname, '../upload/good.jpg');
+            const res = await request(app)
+                .post("/api/partner/create")
+                .set('Authorization','bearer '+token)
+                .set('Content-Type','multipart/form-data')
+                .attach('pictures', filename);
             expect(res.statusCode).toBe(200);
         })
 
-     
+        
 
         
 

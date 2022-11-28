@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-
+import path from 'path';
 
 import {REGISTER,CONFIRM_EMAIL, LOGIN, AUTH,GET_PARTNERS, GET_PANELS, GET_PARTNER, GET_PANEL, DELETE_PANEL, DELETE_PARTNER, CREATE_PANEL, CREATE_PARTNER} from '../constants/routes.constants.js'
 import { authMiddleware } from '../middlewares/auth.middleware.js';
@@ -11,7 +11,17 @@ import {registerService,confirmEmailService} from '../services/auth/register.ser
 import { createPanelService, deletePanelService, getAllPanelsService, getOnePanelService } from '../services/home/panels.service.js';
 import { getAllPartnersService, getOnePartnerService, deletePartnerService, createPartnerService } from '../services/home/partners.service.js';
 
-const multerImage = multer({ dest: "public/uploads/images" });
+
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, './public/uploads/images')
+    },
+    filename: function (req, file, cb) {
+        let id = (Math.random() + 1).toString(36).substring(7);
+        cb(null, Date.now() + id + path.extname(file.originalname));
+    }
+})
+const multerImage = multer({ storage: storage });
 
 const router = express.Router();
 
@@ -33,8 +43,8 @@ router.get(GET_PANEL, getOnePanelService);
     //private
     router.post(DELETE_PARTNER, authMiddleware, deletePartnerService);
     router.post(DELETE_PANEL, authMiddleware, deletePanelService);
-    router.post(CREATE_PANEL, multerImage.array('pictures'), uploadImageMiddleware, createPanelService);
-    router.post(CREATE_PARTNER, multerImage.array('pictures'), uploadImageMiddleware, createPartnerService);
+    router.post(CREATE_PANEL, multerImage.any('pictures'), uploadImageMiddleware, createPanelService);
+    router.post(CREATE_PARTNER, multerImage.any('pictures'), uploadImageMiddleware, createPartnerService);
 
 
 export default router;

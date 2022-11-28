@@ -42,16 +42,8 @@ export const deletePartnerService = async (req,res) => {
 
 
 export const createPartnerService = async (req,res) => {
-    /*let id = req.body['id'];
-    try {
-        console.log(id)
-        let response = await deletePartner(id);
-        if(response.rowCount === 0){
-            throw new Error("bad id");
-        }
-        return res.status(200).send({text:"partner deleted successfully"});
-    } catch (error) {
-        console.log("Error delete partner : ", error)
-        return res.status(403).send({error: "Something went wrong while deleting partner"});
-    }*/
+    let id = req.body['id'];
+    
+    return res.status(403).send({error: "Something went wrong while deleting partner"});
+    
 }
