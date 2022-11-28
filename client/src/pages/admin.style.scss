@@ -17,6 +17,11 @@
     width: 80%;
 }
 
+@media screen and (max-width:$tablet-max) {
+    .adminContent {
+        margin-left: 260px;
+    }
+}
 
 @media screen and (max-width:$mobile-max) {
     .adminStructure {

@@ -72,7 +72,7 @@
     width: 320px;
     height: 400px;
     padding: 20px !important;
-    position: fixed;
+    position: absolute;
     background-color: $primary-color;
     opacity: 0.6;
     border-radius: 6px;
@@ -82,7 +82,7 @@
 
 
 .optionEventAdmin{
-    position: fixed;
+    position: absolute;
     background-color: $tertiary-color;
     width: 200px;  
     border-radius: 6px;
@@ -100,4 +100,16 @@
 
 .inscriptionOptionEventAdmin{
     border-bottom: solid 2px $primary-color;
+}
+
+@media screen and (max-width:$tablet-max) {
+    .eventAdmin{
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width:$mobile-max) {
+    .eventAdmin{
+        margin-right: 0px;
+    }
 }

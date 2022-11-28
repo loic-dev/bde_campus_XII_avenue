@@ -18,3 +18,21 @@ $mobile-min:440px;
     display: flex;
     justify-content: center;
 }
+
+.flexContainer{
+    display: flex;
+    justify-content: space-between
+    ;
+}
+
+.flexContainerColumn{
+    display: flex;
+    flex-direction: column;
+}
+
+.addImgEvent{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: grey;
+}

@@ -1,6 +1,7 @@
 import { HeaderComponent } from "../components/header/header.component"
 import { NavAdmin } from "../components/navAdmin/navAdmin.component"
 import { EventAdmin } from "../components/eventAdmin/eventAdmin.component"
+import { NewEvent } from "../components/newEvent/newEvent.component"
 import './admin.style.scss';
 
 export const AdminPage = () => {
@@ -13,6 +14,7 @@ export const AdminPage = () => {
                 <div><NavAdmin/></div>
                 <div className="adminContent">
                     <EventAdmin/>
+                    <NewEvent/>
                 </div>
             </div>   
         </section>  
