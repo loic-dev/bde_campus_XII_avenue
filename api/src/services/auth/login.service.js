@@ -1,15 +1,14 @@
 import bcrypt from "bcrypt";
 import {getUserByEmail} from '../../models/users.model.js'
-import { usernameValidator, emailValidator, passwordValidator } from "../../utils/regex.util.js";
+import { emailValidator, passwordValidator } from "../../utils/regex.util.js";
 import jwt  from 'jsonwebtoken';
 
 
 export const loginService = async (req, res) => {
     let {login, password } = req.body;
-
     try {
-        let isUsername = usernameValidator(login);
         let isEmail = emailValidator(login);
+        console.log(isEmail)
         let passwordPolicyRespected = passwordValidator(password);
         let databaseResponse = null;
 
@@ -31,7 +30,7 @@ export const loginService = async (req, res) => {
 
 
         //verify user exist
-        if(databaseResponse.rowLength === 0){
+        if(databaseResponse.rowCount === 0){
             console.log("User unknow");
             return res.status(401).send({error:"Login or password doesn't match"});
         }
@@ -40,7 +39,7 @@ export const loginService = async (req, res) => {
 
 
         //verify confirm user email
-        if(!user.email_confirmed){
+        if(!user.verify){
             console.log(login + " : user email hasn't been confirmed")
             return res.status(401).send({error:"User email hasn't been confirmed"});
         }

@@ -9,7 +9,6 @@ import morgan from 'morgan';
 import pkg from 'pg';
 const { Pool } = pkg;
 
-
 export const app = express();
 
 
@@ -26,6 +25,9 @@ app.use("/api", router);
 
 //PUBLIC ROUTER
 app.use(express.static(path.resolve('./public')));
+
+
+
 
 
 

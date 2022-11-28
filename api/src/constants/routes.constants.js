@@ -8,3 +8,7 @@ export const GET_PANELS = '/panels';
 export const GET_PANEL = '/panel';
 export const DELETE_PARTNER = '/partner/delete';
 export const DELETE_PANEL = '/panel/delete';
+
+
+export const CREATE_PARTNER = '/partner/create';
+export const CREATE_PANEL = '/panel/create';

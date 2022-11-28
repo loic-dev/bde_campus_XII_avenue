@@ -17,13 +17,13 @@ CREATE TABLE roles (
 CREATE TABLE users (
     id_user uuid NOT NULL,
     id_role uuid NOT NULL,
-    lastname varchar(50),
-    firstname varchar(50),
-    email varchar(50),
-    password varchar(50),
+    lastname varchar(255),
+    firstname varchar(255),
+    email varchar(255),
+    password varchar(255),
     verify boolean,
-    created_at timestamp,
-    updated_at timestamp,
+    created_at varchar(255),
+    updated_at varchar(255),
     PRIMARY KEY (id_user),
     CONSTRAINT fk_role
       FOREIGN KEY(id_role) 
@@ -41,9 +41,9 @@ CREATE TABLE images (
 CREATE TABLE events (
    id_event UUID NOT NULL,
    id_image UUID,
-   name_event VARCHAR(50) NOT NULL,
-   desc_event VARCHAR(255),
-   date_event timestamp,
+   name_event VARCHAR(255) NOT NULL,
+   desc_event TEXT,
+   date_event varchar(255),
    signup_event BOOLEAN,
    PRIMARY KEY(id_event),
    CONSTRAINT fk_image
@@ -54,9 +54,9 @@ CREATE TABLE events (
 CREATE TABLE register (
    id_register UUID,
    id_event UUID,
-   lastname_register VARCHAR(50),
-   firstname_register VARCHAR(50),
-   email_register VARCHAR(50),
+   lastname_register VARCHAR(255),
+   firstname_register VARCHAR(255),
+   email_register VARCHAR(255),
    comment_register VARCHAR(255),
    PRIMARY KEY(id_register),
    CONSTRAINT fk_event
@@ -70,7 +70,7 @@ CREATE TABLE panel (
    id_panel UUID,
    id_image UUID,
    desc_panel VARCHAR(500),
-   title_panel VARCHAR(50),
+   title_panel VARCHAR(255),
    PRIMARY KEY(id_panel),
    CONSTRAINT fk_image
       FOREIGN KEY(id_image)
@@ -81,7 +81,7 @@ CREATE TABLE panel (
 CREATE TABLE partner (
    id_partner UUID,
    id_image UUID,
-   name_partner VARCHAR(50),
+   name_partner VARCHAR(255),
    desc_partner VARCHAR(255),
    PRIMARY KEY(id_partner),
    CONSTRAINT fk_image
