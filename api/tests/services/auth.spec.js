@@ -9,7 +9,6 @@ export const testAuth = () => {
 
         test("JWT expired", async () => {
             let token = await createToken(constants.register.username,true)
-            console.log(token)
             const res = await request(app).get("/api/auth").set({Authorization:token})
             expect(res.statusCode).toBe(401);
             expect(res.body).toEqual({error:"Error JWT"});

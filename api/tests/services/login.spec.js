@@ -36,12 +36,6 @@ export const testLogin = () => {
             expect(res.statusCode).toBe(200);
         })
 
-        test("login by username - successfull", async () => {
-            const res = await request(app).post("/api/login").send({login:constants.login.username,password:constants.login.password})
-            expect(res.statusCode).toBe(200);
-        })
-
-
         
 
 })

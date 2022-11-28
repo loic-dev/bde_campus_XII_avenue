@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import {getUserByEmail, getUserByUsername} from '../../models/users.model.js'
+import {getUserByEmail} from '../../models/users.model.js'
 import { usernameValidator, emailValidator, passwordValidator } from "../../utils/regex.util.js";
 import jwt  from 'jsonwebtoken';
 
@@ -24,8 +24,6 @@ export const loginService = async (req, res) => {
         //verify login data policy
         if(isEmail){
             databaseResponse = await getUserByEmail(login);
-        } else if(isUsername){
-            databaseResponse = await getUserByUsername(login);
         } else {
             console.log("Login data policy not respected");
             return res.status(401).send({error:"Login data policy not respected"});

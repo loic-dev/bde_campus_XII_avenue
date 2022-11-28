@@ -19,12 +19,6 @@ export const testRegister = () => {
             expect(res.body).toEqual({error:"invalid register data"});
         })
 
-        test("user with this username already exist", async () => {
-            await request(app).post("/api/register").send(registerData())
-            const response = await request(app).post("/api/register").send({email:constants.register.email2,username:constants.register.username,password:constants.register.password,phone:constants.register.phone})
-            expect(response.body).toEqual({error:"User with this username already exist"});
-        })
-
         test("user with this email already exist", async () => {
             const response = await request(app).post("/api/register").send({email:constants.register.email,username:constants.register.username2,password:constants.register.password,phone:constants.register.phone})
             expect(response.body).toEqual({error:"User with this email already exist"});

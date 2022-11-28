@@ -13,7 +13,7 @@ export const registerData = () => {
 }
 
 export const createToken = async (username, expired, unknow = false) => {
-    const res = await database.query(`select id from users where username=$1 ALLOW FILTERING`, [username]);
+    const res = await database.query(`select id_user from users where username=$1`, [username]);
     let userId = unknow ? '23cd68da-0139-4a4f-b12f-35f024923ee5' : res.rows[0].id;
     let token = null;
     if(expired){

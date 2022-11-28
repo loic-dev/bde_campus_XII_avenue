@@ -102,7 +102,8 @@ INSERT INTO public.partner(id_partner, id_image, name_partner, desc_partner) VAL
 
 
 /* insert panels */
-INSERT INTO public.panel(id_panel, id_image, desc_panel, title_panel) VALUES ('a0c3bce8-682b-11ed-9022-0242ac120002', 'ed0ee268-682a-11ed-9022-0242ac120002', 'Do aliquip do dolor veniam do consectetur nostrud veniam ad duis nostrud ut eu elit. Nisi adipisicing do adipisicing in occaecat pariatur elit sit. Lorem labore cillum velit consequat labore et. Dolore id reprehenderit sit commodo esse ad reprehenderit cupidatat non qui voluptate excepteur. Aute esse ea excepteur eu dolore minim nisi laboris proident amet nulla magna mollit.', 'présentation bde');
-
-
+INSERT INTO public.panel(id_panel, id_image, desc_panel, title_panel) VALUES ('1b9d6bcd-bbfd-4b2d-9b5d-ab8dfbbd4bed', 'ed0ee268-682a-11ed-9022-0242ac120002', 'Do aliquip do dolor veniam do consectetur nostrud veniam ad duis nostrud ut eu elit. Nisi adipisicing do adipisicing in occaecat pariatur elit sit. Lorem labore cillum velit consequat labore et. Dolore id reprehenderit sit commodo esse ad reprehenderit cupidatat non qui voluptate excepteur. Aute esse ea excepteur eu dolore minim nisi laboris proident amet nulla magna mollit.', 'présentation bde');
 INSERT INTO public.panel(id_panel, id_image, desc_panel, title_panel) VALUES ('c39cc20a-682b-11ed-9022-0242ac120002', '3cabbd0a-682b-11ed-9022-0242ac120002', 'Do aliquip do dolor veniam do consectetur nostrud veniam ad duis nostrud ut eu elit. Nisi adipisicing do adipisicing in occaecat pariatur elit sit. Lorem labore cillum velit consequat labore et. Dolore id reprehenderit sit commodo esse ad reprehenderit cupidatat non qui voluptate excepteur. Aute esse ea excepteur eu dolore minim nisi laboris proident amet nulla magna mollit.', 'Presentation rodez');
+
+
+INSERT INTO public.roles(id_role, name_role) VALUES ('c39cc20a-682b-11ed-9022-0242ac120002', 'member');
