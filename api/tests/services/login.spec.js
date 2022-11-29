@@ -1,6 +1,7 @@
 import request from 'supertest';
 import {app} from '../../index.js';
 import constants from '../utils/constants.util.json'
+import { registerData } from '../utils/functions.util.js';
 
 export const testLogin = () => {
 
@@ -13,7 +14,7 @@ export const testLogin = () => {
         })
 
         test("login - user don't exist", async () => {
-            const res = await request(app).post("/api/login").send({login:constants.login.badUsername,password:constants.login.password})
+            const res = await request(app).post("/api/login").send({login:constants.login.email_userNotConfirmed,password:constants.login.password})
             expect(res.statusCode).toBe(401);
             expect(res.body).toEqual({error:"Login or password doesn't match"});
         })
@@ -25,7 +26,9 @@ export const testLogin = () => {
         })
 
         test("login - user email not confirmed", async () => {
-            await request(app).post("/api/register").send({email:constants.register.email2,username:constants.register.username2,password:constants.register.password,phone:constants.register.phone})
+            let data = registerData();
+            data.email = constants.login.email_userNotConfirmed;
+            await request(app).post("/api/register").send(data)
             const res = await request(app).post("/api/login").send({login:constants.login.email_userNotConfirmed,password:constants.login.password})
             expect(res.statusCode).toBe(401);
             expect(res.body).toEqual({error:"User email hasn't been confirmed"});
@@ -35,12 +38,6 @@ export const testLogin = () => {
             const res = await request(app).post("/api/login").send({login:constants.login.email,password:constants.login.password})
             expect(res.statusCode).toBe(200);
         })
-
-        test("login by username - successfull", async () => {
-            const res = await request(app).post("/api/login").send({login:constants.login.username,password:constants.login.password})
-            expect(res.statusCode).toBe(200);
-        })
-
 
         
 

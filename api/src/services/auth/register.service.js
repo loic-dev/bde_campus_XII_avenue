@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
-import {addUser, confirmEmailDatabase, getUserByEmail, getUserById, getUserByUsername} from '../../models/users.model.js'
-import { usernameValidator, emailValidator, passwordValidator , phoneValidator} from "../../utils/regex.util.js";
+import {addUser, confirmEmailDatabase, getUserByEmail, getUserById} from '../../models/users.model.js'
+import { emailValidator, passwordValidator } from "../../utils/regex.util.js";
 import {sendVerifyUserEmail} from '../emails/verifyUser.service.js';
 import { v4 as uuidv4 } from 'uuid';
 import jwt  from 'jsonwebtoken';
@@ -8,19 +8,12 @@ import jwt  from 'jsonwebtoken';
 export const registerService = async (req,res) => {
 
     try {
-        let {email,username,password,phone} = req.body;
+        let {email,lastname,firstname, password} = req.body;
 
         // valid user info
-        if(usernameValidator(username) && emailValidator(email) && passwordValidator(password) && phoneValidator(phone)){
-            let userByUsername = await getUserByUsername(username);
+        if(firstname && lastname && emailValidator(email) && passwordValidator(password)){
             let userByEmail = await getUserByEmail(email);
-
-            if(userByUsername.rowLength > 0){
-                console.log(username + " : user with this username already exist")
-                throw new Error("User with this username already exist");
-            }
-
-            if(userByEmail.rowLength > 0){
+            if(userByEmail.rowCount > 0){
                 console.log(email + " : user with this email already exist");
                 throw new Error("User with this email already exist");
             }
@@ -32,21 +25,20 @@ export const registerService = async (req,res) => {
             //hash password
             const hashPassword = await bcrypt.hash(password, 10);
 
-
-            addUser(userId,username,email,hashPassword,phone).then(() => {
-                console.log(`User added sucessfully : ${username} `)
+            addUser(userId,"c39cc20a-682b-11ed-9022-0242ac120002", lastname, firstname, email, hashPassword).then(() => {
+                console.log(`User added sucessfully : ${firstname} `)
 
                 let tokenConfirmEmail = jwt.sign({ userId },  process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
 
                 //send email verification
-                sendVerifyUserEmail(username,tokenConfirmEmail).then((url) => {
-                    console.log(`User added sucessfully, an email has been sent to you : ${username} `)
+                sendVerifyUserEmail(firstname,tokenConfirmEmail).then((url) => {
+                    console.log(`User added sucessfully, an email has been sent to you : ${firstname} `)
 
                     //dev environment
                     process.env.NODE_ENV !== "production" && console.log(`URL EMAIL : ${url} `)
-                    return res.status(200).send({text:"User added sucessfully, an email has been sent to you"});
+                    return res.status(200).send({text:"User added sucessfully, an email has been sent to you", token:process.env.NODE_ENV !== "production" ?  tokenConfirmEmail : null});
                 }).catch((err) => {
-                    console.log(`Something went wrong while the email sending : ${username} ==> `+err)
+                    console.log(`Something went wrong while the email sending : ${firstname} ==> `+err)
                     throw new Error("Something went wrong while the email sending");
                 })
 
@@ -81,7 +73,7 @@ export const confirmEmailService = async (req,res) => {
             throw new Error("Something went wrong while the email confirming")
         });
 
-        if(user.rowLength === 0){
+        if(user.rowCount === 0){
             console.log("Error email confirmation: userId don't exist", decoded.userId);
             throw new Error("Error email confirmation: userId don't exist");
         }

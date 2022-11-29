@@ -1,7 +1,7 @@
 import {createTestAccount,createTransport,getTestMessageUrl} from 'nodemailer';
 
 
-export const sendVerifyUserEmail = async (username,token) => {
+export const sendVerifyUserEmail = async (firstname,token) => {
 
     //test email
     let account = await createTestAccount();
@@ -22,7 +22,7 @@ export const sendVerifyUserEmail = async (username,token) => {
     let info = await transporter.sendMail({
         from: '"Fred Foo 👻" <foo@example.com>', // sender address
         to: "bar@example.com, baz@example.com", // list of receivers
-        subject: `Welcome ${username}`, // Subject line
+        subject: `Welcome ${firstname}`, // Subject line
         html: `<p>${token}</p>`, // html body
     });
 

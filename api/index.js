@@ -3,24 +3,31 @@ import express from 'express';
 import router from './src/routes/router.js'
 import json from 'body-parser';
 import cors from 'cors';
+import path from 'path'
 import helmet from 'helmet';
 import morgan from 'morgan';
 import pkg from 'pg';
 const { Pool } = pkg;
-
 
 export const app = express();
 
 
 //express modules
 app.use(helmet());
-app.use(json.json());
+app.use(json.urlencoded());
 app.use(cors());
 app.use(morgan('combined'));
 
 
 //HTTP router
 app.use("/api", router);
+
+
+//PUBLIC ROUTER
+app.use(express.static(path.resolve('./public')));
+
+
+
 
 
 
@@ -38,6 +45,6 @@ database.connect();
 
 
 //starting the server
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV === 'developpment') {
     app.listen(process.env.API_PORT, () => {console.log(`listening on port ${process.env.API_PORT}`);});
 }
