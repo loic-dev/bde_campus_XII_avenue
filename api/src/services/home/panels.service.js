@@ -1,4 +1,5 @@
-import { deletePanel, getAllPanels, getPanel } from "../../models/panels.model.js"
+import { createPanel, deletePanel, getAllPanels, getPanel } from "../../models/panels.model.js"
+import { v4 as uuidv4 } from 'uuid';
 
 export const getAllPanelsService = async (req,res) => {
     try {
@@ -41,16 +42,23 @@ export const deletePanelService = async (req,res) => {
 }
 
 export const createPanelService = async (req,res) => {
-    /*let id = req.body['id'];
+
+    let { desc,title } = req.body;
+    let id_image = req.id_image;
     try {
-        console.log(id)
-        let response = await deletePartner(id);
-        if(response.rowCount === 0){
-            throw new Error("bad id");
+        if(!title || !desc || !id_image){
+            throw new Error("Missing arguments")
         }
-        return res.status(200).send({text:"partner deleted successfully"});
-    } catch (error) {
-        console.log("Error delete partner : ", error)*/
-        return res.status(403).send({error: "Something went wrong while deleting partner"});
-    //}
+    
+        let id_panel = uuidv4();
+        let response = await createPanel(id_panel,id_image, title, desc );
+        if(response.rowCount === 0){
+            throw new Error('Something went wrong while the database insert panel')
+        }
+        return res.status(200).send({error: "Something went wrong while deleting panel"});
+    } catch(e) {
+        console.log("error create panel: ", e)
+        return res.status(403).send({error: "Something went wrong while insert panel"});
+    }
+
 }

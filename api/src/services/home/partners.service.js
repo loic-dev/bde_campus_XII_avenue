@@ -1,4 +1,6 @@
-import { deletePartner, getAllPartners, getPartner } from "../../models/partners.model.js"
+import { createPartner, deletePartner, getAllPartners, getPartner } from "../../models/partners.model.js"
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const getAllPartnersService = async (req,res) => {
     try {
@@ -28,7 +30,6 @@ export const getOnePartnerService = async (req,res) => {
 export const deletePartnerService = async (req,res) => {
     let id = req.body['id'];
     try {
-        console.log(id)
         let response = await deletePartner(id);
         if(response.rowCount === 0){
             throw new Error("bad id");
@@ -42,8 +43,26 @@ export const deletePartnerService = async (req,res) => {
 
 
 export const createPartnerService = async (req,res) => {
-    let id = req.body['id'];
+
+    let { desc,name } = req.body;
+    let id_image = req.id_image;
+    try {
+        if(!name || !desc || !id_image){
+            throw new Error("Missing arguments")
+        }
     
-    return res.status(403).send({error: "Something went wrong while deleting partner"});
+        let id_partners = uuidv4();
+        let response = await createPartner(id_partners,id_image, name, desc );
+        if(response.rowCount === 0){
+            throw new Error('Something went wrong while the database insert partner')
+        }
+        return res.status(200).send({error: "Something went wrong while deleting partner"});
+    } catch(e) {
+        console.log("error create partner: ", e)
+        return res.status(403).send({error: "Something went wrong while insert partner"});
+    }
+
+
+    
     
 }
