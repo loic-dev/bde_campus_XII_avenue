@@ -8,7 +8,6 @@ export const loginService = async (req, res) => {
     let {login, password } = req.body;
     try {
         let isEmail = emailValidator(login);
-        console.log(isEmail)
         let passwordPolicyRespected = passwordValidator(password);
         let databaseResponse = null;
 
@@ -37,7 +36,6 @@ export const loginService = async (req, res) => {
 
         const user = databaseResponse.rows[0];
 
-
         //verify confirm user email
         if(!user.verify){
             console.log(login + " : user email hasn't been confirmed")
@@ -52,7 +50,7 @@ export const loginService = async (req, res) => {
             return res.status(401).send({error:"Login or password doesn't match"});
         }
 
-        let userId = user.id;
+        let userId = user.id_user;
         let loginToken = jwt.sign({ userId },  process.env.JWT_SECRET_KEY, { expiresIn: '24h' });
 
         return res.status(200).send({text:"User login successfully", token:loginToken});

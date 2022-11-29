@@ -55,7 +55,7 @@ export const createPanelService = async (req,res) => {
         if(response.rowCount === 0){
             throw new Error('Something went wrong while the database insert panel')
         }
-        return res.status(200).send({error: "Something went wrong while deleting panel"});
+        return res.status(200).send({error: "Panel successfully created"});
     } catch(e) {
         console.log("error create panel: ", e)
         return res.status(403).send({error: "Something went wrong while insert panel"});

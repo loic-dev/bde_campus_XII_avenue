@@ -56,7 +56,7 @@ export const createPartnerService = async (req,res) => {
         if(response.rowCount === 0){
             throw new Error('Something went wrong while the database insert partner')
         }
-        return res.status(200).send({error: "Something went wrong while deleting partner"});
+        return res.status(200).send({error: "Partner successfully created"});
     } catch(e) {
         console.log("error create partner: ", e)
         return res.status(403).send({error: "Something went wrong while insert partner"});

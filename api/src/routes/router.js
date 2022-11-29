@@ -43,8 +43,8 @@ router.get(GET_PANEL, getOnePanelService);
     //private
     router.post(DELETE_PARTNER, authMiddleware, deletePartnerService);
     router.post(DELETE_PANEL, authMiddleware, deletePanelService);
-    router.post(CREATE_PANEL, multerImage.any('pictures'), uploadImageMiddleware, createPanelService);
-    router.post(CREATE_PARTNER, multerImage.any('pictures'), uploadImageMiddleware, createPartnerService);
+    router.post(CREATE_PANEL, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createPanelService);
+    router.post(CREATE_PARTNER, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createPartnerService);
 
 
 export default router;

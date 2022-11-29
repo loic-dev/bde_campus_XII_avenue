@@ -6,7 +6,6 @@ import {getUserById} from '../models/users.model.js';
 export const authMiddleware = async (req,res,next) => {
       try {
         const token = req.headers.authorization.split(' ')[1];
-        
         let decodedToken = null;
         try {
             decodedToken = jwt.verify(token, process.env.JWT_SECRET_KEY);
@@ -17,7 +16,6 @@ export const authMiddleware = async (req,res,next) => {
 
         
         const userId = decodedToken.userId;
-      
         let user = await getUserById(userId);
 
         if(user.rowCount === 0){

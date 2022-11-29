@@ -14,7 +14,7 @@ export const app = express();
 
 //express modules
 app.use(helmet());
-app.use(json.json());
+app.use(json.urlencoded());
 app.use(cors());
 app.use(morgan('combined'));
 
@@ -45,6 +45,6 @@ database.connect();
 
 
 //starting the server
-if (process.env.NODE_ENV !== 'developpment') {
+if (process.env.NODE_ENV === 'developpment') {
     app.listen(process.env.API_PORT, () => {console.log(`listening on port ${process.env.API_PORT}`);});
 }
