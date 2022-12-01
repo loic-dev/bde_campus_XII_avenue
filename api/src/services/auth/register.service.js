@@ -10,6 +10,8 @@ export const registerService = async (req,res) => {
     try {
         let {email,lastname,firstname, password} = req.body;
 
+        console.log(req.body)
+
         // valid user info
         if(firstname && lastname && emailValidator(email) && passwordValidator(password)){
             let userByEmail = await getUserByEmail(email);
@@ -36,7 +38,7 @@ export const registerService = async (req,res) => {
 
                     //dev environment
                     process.env.NODE_ENV !== "production" && console.log(`URL EMAIL : ${url} `)
-                    return res.status(200).send({text:"User added sucessfully, an email has been sent to you", token:process.env.NODE_ENV !== "production" ?  tokenConfirmEmail : null});
+                    return res.status(200).send({text:"User added sucessfully, an email has been sent to you", token:process.env.NODE_ENV === "production" ?  tokenConfirmEmail : null});
                 }).catch((err) => {
                     console.log(`Something went wrong while the email sending : ${firstname} ==> `+err)
                     throw new Error("Something went wrong while the email sending");

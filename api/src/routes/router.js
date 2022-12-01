@@ -2,9 +2,10 @@ import express from 'express';
 import multer from 'multer';
 import path from 'path';
 
-import {REGISTER,CONFIRM_EMAIL, LOGIN, AUTH,GET_PARTNERS, GET_PANELS, GET_PARTNER, GET_PANEL, DELETE_PANEL, DELETE_PARTNER, CREATE_PANEL, CREATE_PARTNER} from '../constants/routes.constants.js'
+import {REGISTER,CONFIRM_EMAIL, LOGIN, AUTH,GET_PARTNERS, GET_PANELS, GET_PARTNER, GET_PANEL, DELETE_PANEL, DELETE_PARTNER, CREATE_PANEL, CREATE_PARTNER, CREATE_EVENT} from '../constants/routes.constants.js'
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { uploadImageMiddleware } from '../middlewares/upload.middleware.js';
+import { createEventService } from '../services/admin/events.service.js';
 import { authService } from '../services/auth/auth.service.js';
 import { loginService } from '../services/auth/login.service.js';
 import {registerService,confirmEmailService} from '../services/auth/register.service.js'
@@ -45,6 +46,13 @@ router.get(GET_PANEL, getOnePanelService);
     router.post(DELETE_PANEL, authMiddleware, deletePanelService);
     router.post(CREATE_PANEL, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createPanelService);
     router.post(CREATE_PARTNER, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createPartnerService);
+
+
+//event
+
+
+    //private
+    router.post(CREATE_EVENT, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createEventService);
 
 
 export default router;

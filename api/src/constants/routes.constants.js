@@ -12,3 +12,6 @@ export const DELETE_PANEL = '/panel/delete';
 
 export const CREATE_PARTNER = '/partner/create';
 export const CREATE_PANEL = '/panel/create';
+
+
+export const CREATE_EVENT = '/event/create';

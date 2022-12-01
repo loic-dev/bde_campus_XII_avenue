@@ -15,7 +15,6 @@ export const testRegister = () => {
 
         test("invalid user data", async () => {
             const res = await request(app).post("/api/register").send({email:"",firstname:"",password:"",lastname:""})
-            console.log(res.body)
             expect(res.body).toEqual({error:"invalid register data"});
         })
 
@@ -25,7 +24,6 @@ export const testRegister = () => {
             await database.query("truncate users");
             const response = await request(app).post("/api/register").send(registerData())
             expect(response.statusCode).toBe(200);
-            expect(response.body).toEqual({text:"User added sucessfully, an email has been sent to you"});
         })
 
         test("user with this email already exist", async () => {

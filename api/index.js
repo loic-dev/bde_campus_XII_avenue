@@ -1,7 +1,7 @@
 // importing the dependencies
 import express from 'express';
 import router from './src/routes/router.js'
-import json from 'body-parser';
+import bodyparser from 'body-parser';
 import cors from 'cors';
 import path from 'path'
 import helmet from 'helmet';
@@ -14,7 +14,7 @@ export const app = express();
 
 //express modules
 app.use(helmet());
-app.use(json.urlencoded());
+app.use(bodyparser.json());
 app.use(cors());
 app.use(morgan('combined'));
 
