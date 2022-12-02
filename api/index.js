@@ -14,7 +14,7 @@ export const app = express();
 
 //express modules
 app.use(helmet());
-app.use(bodyparser.json());
+app.use(bodyparser.urlencoded());
 app.use(cors());
 app.use(morgan('combined'));
 

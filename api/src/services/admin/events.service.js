@@ -7,13 +7,15 @@ export const createEventService = async (req,res) => {
     let { name, desc, date, signup } = req.body;
     let id_image = req.id_image;
 
+    console.log(req.body)
+
    
     try {
         if(!name || !desc || !id_image || !date || !signup){
             throw new Error("Missing arguments")
         }
-        
-        var timestamp = moment(new Date(date)).format('YYYY-MM-DD HH:mm:ss');
+        let newDate = new Date(date);
+        var timestamp = moment(newDate).format('YYYY-MM-DD HH:mm:ss');
         var datenow = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
         if(timestamp < datenow){
             throw new Error("Date must be in the future")
@@ -23,7 +25,7 @@ export const createEventService = async (req,res) => {
         if(response.rowCount === 0){
             throw new Error('Something went wrong while the database insert event')
         }
-        return res.status(200).send({error: "Event successfully created"});
+        return res.status(200).send({text: "Event successfully created"});
     } catch(e) {
         console.log("error create panel: ", e)
         return res.status(403).send({error: "Something went wrong while insert event : "+e});
@@ -86,11 +88,17 @@ export const modifyOneEventService = async (req,res) => {
             throw new Error("No event");
         }
 
-        var timestamp = moment(new Date(date)).format('YYYY-MM-DD HH:mm:ss');
+    
         var datenow = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
-        if(timestamp < datenow){
-            throw new Error("Date must be in the future")
+        var timestamp = null;
+        if(date){
+            timestamp = moment(new Date(date)).format('YYYY-MM-DD HH:mm:ss');
+            if(timestamp < datenow){
+                throw new Error("Date must be in the future")
+            }
         }
+
+        
 
 
         let ArrayCompare = [{
@@ -126,12 +134,14 @@ export const modifyOneEventService = async (req,res) => {
             throw new Error('Nothing to modify');
         }
 
+        console.log(dataModify)
+
         dataModify['updated_at'] = datenow;
         let response = await modifyOneEvent(id, dataModify);
         if(response.rowCount === 0){
             throw new Error('Something went wrong while the database modify event')
         }
-        return res.status(200).send({error: "Event successfully created"});
+        return res.status(200).send({error: "Event successfully modify"});
     } catch(e) {
         console.log("error modify event: ", e)
         return res.status(403).send({error: "Something went wrong while modify event : "+e});
