@@ -1,11 +1,12 @@
 import express from 'express';
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs'
 
-import {REGISTER,CONFIRM_EMAIL, LOGIN, AUTH,GET_PARTNERS, GET_PANELS, GET_PARTNER, GET_PANEL, DELETE_PANEL, DELETE_PARTNER, CREATE_PANEL, CREATE_PARTNER, CREATE_EVENT} from '../constants/routes.constants.js'
+import {REGISTER,CONFIRM_EMAIL, LOGIN, AUTH,GET_PARTNERS, GET_PANELS, GET_PARTNER, GET_PANEL, DELETE_PANEL, DELETE_PARTNER, CREATE_PANEL, CREATE_PARTNER, CREATE_EVENT, GET_EVENTS, GET_EVENT, GET_NEXT_EVENT, MODIFY_EVENT, DELETE_EVENT} from '../constants/routes.constants.js'
 import { authMiddleware } from '../middlewares/auth.middleware.js';
 import { uploadImageMiddleware } from '../middlewares/upload.middleware.js';
-import { createEventService } from '../services/admin/events.service.js';
+import { createEventService, deleteEventService, getAllEventsService, getNextEventService, getOneEventService, modifyOneEventService } from '../services/admin/events.service.js';
 import { authService } from '../services/auth/auth.service.js';
 import { loginService } from '../services/auth/login.service.js';
 import {registerService,confirmEmailService} from '../services/auth/register.service.js'
@@ -15,7 +16,9 @@ import { getAllPartnersService, getOnePartnerService, deletePartnerService, crea
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './public/uploads/images')
+        let directory = './public/uploads/images'
+        fs.mkdirSync(directory, { recursive: true })
+        cb(null, directory)
     },
     filename: function (req, file, cb) {
         let id = (Math.random() + 1).toString(36).substring(7);
@@ -49,11 +52,14 @@ router.get(GET_PANEL, getOnePanelService);
 
 
 //event
-
+router.get(GET_EVENTS, getAllEventsService);
+router.get(GET_EVENT, getOneEventService);
+router.get(GET_NEXT_EVENT, getNextEventService);
 
     //private
     router.post(CREATE_EVENT, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, createEventService);
-
+    router.post(MODIFY_EVENT, authMiddleware, multerImage.any('pictures'), uploadImageMiddleware, modifyOneEventService);
+    router.post(DELETE_EVENT, authMiddleware, deleteEventService);
 
 export default router;
 

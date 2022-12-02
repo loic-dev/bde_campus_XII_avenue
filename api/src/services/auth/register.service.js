@@ -4,13 +4,13 @@ import { emailValidator, passwordValidator } from "../../utils/regex.util.js";
 import {sendVerifyUserEmail} from '../emails/verifyUser.service.js';
 import { v4 as uuidv4 } from 'uuid';
 import jwt  from 'jsonwebtoken';
+import moment from 'moment';
+
+
 
 export const registerService = async (req,res) => {
-
     try {
         let {email,lastname,firstname, password} = req.body;
-
-        console.log(req.body)
 
         // valid user info
         if(firstname && lastname && emailValidator(email) && passwordValidator(password)){
@@ -23,11 +23,10 @@ export const registerService = async (req,res) => {
             //create userId
             const userId = uuidv4();
 
-
             //hash password
             const hashPassword = await bcrypt.hash(password, 10);
-
-            addUser(userId,"c39cc20a-682b-11ed-9022-0242ac120002", lastname, firstname, email, hashPassword).then(() => {
+            var datenow = moment(Date.now()).format('YYYY-MM-DD HH:mm:ss');
+            addUser(userId,"c39cc20a-682b-11ed-9022-0242ac120002", lastname, firstname, email, hashPassword, datenow).then(() => {
                 console.log(`User added sucessfully : ${firstname} `)
 
                 let tokenConfirmEmail = jwt.sign({ userId },  process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
@@ -43,7 +42,7 @@ export const registerService = async (req,res) => {
                     console.log(`Something went wrong while the email sending : ${firstname} ==> `+err)
                     throw new Error("Something went wrong while the email sending");
                 })
-
+                
             }).catch((err) => {
                 console.log(err)
                 throw new Error("Something went wrong in database");

@@ -22,8 +22,8 @@ CREATE TABLE users (
     email varchar(255),
     password varchar(255),
     verify boolean,
-    created_at varchar(255),
-    updated_at varchar(255),
+    created_at timestamp,
+    updated_at timestamp,
     PRIMARY KEY (id_user),
     CONSTRAINT fk_role
       FOREIGN KEY(id_role) 
@@ -43,8 +43,10 @@ CREATE TABLE events (
    id_image UUID,
    name_event VARCHAR(255) NOT NULL,
    desc_event TEXT,
-   date_event varchar(255),
+   date_event timestamp,
    signup_event BOOLEAN,
+   created_at timestamp,
+   updated_at timestamp,
    PRIMARY KEY(id_event),
    CONSTRAINT fk_image
       FOREIGN KEY(id_image)
@@ -58,6 +60,8 @@ CREATE TABLE register (
    firstname_register VARCHAR(255),
    email_register VARCHAR(255),
    comment_register VARCHAR(255),
+   created_at timestamp,
+   updated_at timestamp,
    PRIMARY KEY(id_register),
    CONSTRAINT fk_event
       FOREIGN KEY(id_event) 

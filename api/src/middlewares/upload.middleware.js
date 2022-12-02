@@ -5,6 +5,10 @@ import { insertImage } from '../models/images.model.js';
 export const uploadImageMiddleware = async (req,res,next) => {
       try {
 
+        if(req.files.length === 0){
+            return next();
+        }
+
         let files = req.files;
         let authorizedType = ['image/png', 'image/jpeg', 'image/webp', 'image/bmp'];
 
@@ -29,7 +33,6 @@ export const uploadImageMiddleware = async (req,res,next) => {
             throw new Error('Bad image type, type authorized : (png, jpeg, webp and bmp )')
         }
 
-
         id_image = uuidv4();
         const link_image = file.path;
         let response = await insertImage(id_image,link_image);
@@ -39,9 +42,10 @@ export const uploadImageMiddleware = async (req,res,next) => {
 
         req.id_image = id_image;
 
-        next();
+        return next();
 
       } catch(e) {
+            console.log(e)
             return res.status(401).json({error: e.message});
       }
   
