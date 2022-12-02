@@ -11,5 +11,13 @@
         "password":"Test2022",
         "badPassword":"Test2023",
         "email_userNotConfirmed":"test2@test.com"
+    },
+    "register_event":{
+        "id_event":null,
+        "lastname_register":"test",
+        "firstname_register":"test",
+        "email_register":"test@test.com",
+        "comment_register":""
     }
+           
 }

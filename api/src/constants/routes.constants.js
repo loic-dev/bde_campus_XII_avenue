@@ -23,3 +23,9 @@ export const GET_NEXT_EVENT = '/event/next';
 export const CREATE_EVENT = '/event/create';
 export const MODIFY_EVENT = '/event/modify';
 export const DELETE_EVENT = '/event/delete';
+
+export const GET_REGISTERS = '/event/registers';
+export const GET_REGISTER = '/event/register';
+export const CREATE_REGISTER = '/event/register/create';
+export const MODIFY_REGISTER = '/event/register/modify';
+export const DELETE_REGISTER = '/event/register/delete';
