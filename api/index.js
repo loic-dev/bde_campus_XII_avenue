@@ -13,11 +13,14 @@ export const app = express();
 
 
 //express modules
-app.use(helmet());
+app.use(helmet({
+  crossOriginResourcePolicy: false,
+}));
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 app.use(cors());
 app.use(morgan('combined'));
+
 
 
 //HTTP router
@@ -25,7 +28,7 @@ app.use("/api", router);
 
 
 //PUBLIC ROUTER
-app.use(express.static(path.resolve('./public')));
+app.use('/public', express.static('public'));
 
 
 

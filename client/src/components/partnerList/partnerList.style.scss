@@ -8,14 +8,22 @@
     justify-content: center;
 }
 
-.partnerList .list div {
-    background-color: gray;
+.partnerList .list span {
     min-width: 120px;
+    display: flex;
+    background-size: cover;
     min-height: 120px;
     border-radius: 10px;
     margin: 25px;
     transition: 0.5s;
 }
+
+.partnerList .list div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 

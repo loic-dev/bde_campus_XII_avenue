@@ -4,11 +4,11 @@ import { createSetUpdateDatabase } from '../utils/functions.utils.js';
 
 
 export const getAllPartners = async () => {
-    return database.query("SELECT * FROM partner");
+    return database.query("SELECT partner.id_partner, partner.name_partner, partner.desc_partner, images.link_image FROM partner INNER JOIN images ON partner.id_image=images.id_image");
 }
 
 export const getPartner = async (id) => {
-    return database.query(`SELECT * FROM partner WHERE id_partner = $1`,[id]);
+    return database.query(`SELECT partner.id_partner, partner.name_partner, partner.desc_partner, images.link_image FROM partner INNER JOIN images ON partner.id_image=images.id_image WHERE partner.id_partner = $1`,[id]);
 }
 
 export const createPartner = async (id_partner,id_image, name_partner, desc_partner) => {
