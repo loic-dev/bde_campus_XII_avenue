@@ -48,6 +48,8 @@ export const testHome = () => {
             expect(res.statusCode).toBe(200);
         })
 
+        
+
         it("home - get all partners", async () => {
             const res = await request(app).get("/api/partners")
             expect(res.statusCode).toBe(200);
@@ -61,6 +63,29 @@ export const testHome = () => {
             expect(res.body.data.length).toBeGreaterThan(0);
             idPanel = res.body.data[0].id_panel
         })
+
+        it("home - modify panel", async () => {
+            let token = await createToken(constants.register.email,false)
+            const res = await request(app)
+                .post("/api/panel/modify")
+                .set('Authorization','bearer '+token)
+                .set('Content-Type','multipart/form-data')
+                .field('title', 'millau')
+                .field('id', idPanel)
+            expect(res.statusCode).toBe(200);
+        })
+
+        it("home - modify partner", async () => {
+            let token = await createToken(constants.register.email,false)
+            const res = await request(app)
+                .post("/api/partner/modify")
+                .set('Authorization','bearer '+token)
+                .set('Content-Type','multipart/form-data')
+                .field('name', 'modify')
+                .field('id', idPartner)
+            expect(res.statusCode).toBe(200);
+        })
+
 
         it("home - get one partners bad id", async () => {
             const res = await request(app).get("/api/partner?id=00000000-0000-0000-0000-000000000000")

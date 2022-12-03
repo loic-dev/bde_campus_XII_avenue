@@ -9,7 +9,7 @@ describe('sequentially run tests', () => {
     //testRegister();
     //testLogin();
     //testAuth();
-    //testHome();
+    testHome();
     //testEvent();
-    testRegisterEvent();
+    //testRegisterEvent();
 })

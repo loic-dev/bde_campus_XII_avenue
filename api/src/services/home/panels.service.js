@@ -1,4 +1,4 @@
-import { createPanel, deletePanel, getAllPanels, getPanel } from "../../models/panels.model.js"
+import { createPanel, deletePanel, getAllPanels, getPanel, modifyOnePanel } from "../../models/panels.model.js"
 import { v4 as uuidv4 } from 'uuid';
 
 export const getAllPanelsService = async (req,res) => {
@@ -59,6 +59,56 @@ export const createPanelService = async (req,res) => {
     } catch(e) {
         console.log("error create panel: ", e)
         return res.status(403).send({error: "Something went wrong while insert panel"});
+    }
+
+}
+
+export const modifyPanelService = async (req,res) => {
+
+    let { id, desc,title } = req.body;
+    let id_image = req.id_image;
+    try {
+
+        let panel = await getPanel(id);
+        if(panel.rowCount === 0){
+            throw new Error("No event");
+        }
+
+
+        let ArrayCompare = [{
+            "key":"id_image",
+            "send":id_image
+        },
+        {
+            "key":"desc_panel",
+            "send":desc
+        },
+        {
+            "key":"title_panel",
+            "send":title
+        }];
+
+
+        let dataModify = {};
+        ArrayCompare.forEach((data) => {
+            if(data.send && `${panel.rows[0][data.key]}` !== data.send){
+                dataModify[data.key] = data.send;
+            }
+        })
+
+        if(Object.keys(dataModify).length === 0){
+            throw new Error('Nothing to modify');
+        }
+
+  
+        let response = await modifyOnePanel(id, dataModify);
+        if(response.rowCount === 0){
+            throw new Error('Something went wrong while the database modify panel')
+        }
+        return res.status(200).send({error: "Panel successfully modify"});
+    } catch(e) {
+        console.log("error modify panel: ", e)
+        return res.status(403).send({error: "Something went wrong while modify panel"});
     }
 
 }
