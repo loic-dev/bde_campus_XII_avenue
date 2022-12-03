@@ -6,6 +6,7 @@ import jwt  from 'jsonwebtoken';
 
 export const loginService = async (req, res) => {
     let {login, password } = req.body;
+    console.log(req.body)
     try {
         let isEmail = emailValidator(login);
         let passwordPolicyRespected = passwordValidator(password);

@@ -29,7 +29,7 @@ export const registerService = async (req,res) => {
             addUser(userId,"c39cc20a-682b-11ed-9022-0242ac120002", lastname, firstname, email, hashPassword, datenow).then(() => {
                 console.log(`User added sucessfully : ${firstname} `)
 
-                let tokenConfirmEmail = jwt.sign({ userId },  process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+                /*let tokenConfirmEmail = jwt.sign({ userId },  process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
 
                 //send email verification
                 sendVerifyUserEmail(firstname,tokenConfirmEmail).then((url) => {
@@ -38,11 +38,12 @@ export const registerService = async (req,res) => {
                     //dev environment
                     process.env.NODE_ENV !== "production" && console.log(`URL EMAIL : ${url} `)
                     return res.status(200).send({text:"User added sucessfully, an email has been sent to you", token:process.env.NODE_ENV !== "production" ?  tokenConfirmEmail : null});
+                    
                 }).catch((err) => {
                     console.log(`Something went wrong while the email sending : ${firstname} ==> `+err)
                     throw new Error("Something went wrong while the email sending");
-                })
-                
+                })*/
+                return res.status(200).send({text:"User added sucessfully, an email has been sent to you"})
             }).catch((err) => {
                 console.log(err)
                 throw new Error("Something went wrong in database");
