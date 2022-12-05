@@ -4,6 +4,7 @@ $tertiary-color: #1E1932;
 $main_white:#FFFFFF;
 $main_orange: #EB5D0B;
 $main_pink:#fe71c9;
+$overlay:rgba(0,0,0,0.8);
 
 
 /* breakpoint */
@@ -17,4 +18,15 @@ $mobile-min:440px;
 .rowContainer{
     display: flex;
     justify-content: center;
+}
+
+button {
+    padding: 10px 20px;
+    color: $main_white;
+    background-color: $main-orange;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    font-weight: 500;
 }

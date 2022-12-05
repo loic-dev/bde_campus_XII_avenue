@@ -1,69 +1,51 @@
 @import "./../../utils/global.style.scss";
 
-.bdeDescription{
-    background-color: rgba(235, 106, 15,0.3);
-    margin: 40px;
-    border-radius: 9px;
-    max-width: $laptop-max;
-}
 
-.bdeDescription h2{
-    color: #EB5D0B; 
-    text-align: center;
-    padding-top: 40px;
-}
+.row-panel.template2{
+    background: none;
 
-.bdeDescription .component { 
-    border-radius: 10px;
-    display: flex;
-}
+    .container-panel{
+        border-radius: 10px;
+        background-color: rgba(235, 106, 15,0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+        gap: 25px;
+    }
 
-.bdeDescription .component div {
-    margin-left: 10px;
-    margin-right: 10px;
-}
+    .container-row{
+        display: flex;
+        flex-direction: column;
+        
+    }
 
-.logoBdeDescription {
-    max-width: 380px;
-    height: auto;
-}
-
-.bdeDescriptionTxt{ 
-    margin-top: 70px;  
-    padding-bottom: 40px; 
-    padding-left: 50px; 
-}
-
-
-@media only screen and (max-width: $laptop-min) {
-    .bdeDescription  img{
+    .panel-image{
         display: none;
     }
 
-    .bdeDescriptionTxt{ 
-        margin-top: 10px;  
-        padding-left: 30px;
-        padding-right: 30px;  
-    }
+   
+    
 }
 
+@media only screen and (min-width:$tablet-min) {
+    .row-panel.template2{
+    
+        
+        .container-row{
+            display: flex;
+            flex-direction: row;
+            width: 80%;
+        }
 
-@media only screen and (max-width: $mobile-max) {
-    .bdeDescription{
-        margin: 20px;
-    }
+        .panel-description{
+            flex: 2;
+        }
 
-    .bdeDescription h2{
-        padding-top: 10px;
+        .panel-image{
+            display: flex;
+        }
+        
     }
     
-    .bdeDescription  img{
-        display: none;
-    }
-
-    .bdeDescriptionTxt{ 
-        margin-top: 5px;  
-        padding-left: 10px;
-        padding-right: 10px;  
-    }    
 }

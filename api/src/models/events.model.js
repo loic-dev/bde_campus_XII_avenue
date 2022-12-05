@@ -6,15 +6,15 @@ export const createEvent = async (id_event, id_image, name_event, desc_event , d
 }
 
 export const getAllEvents = async () => {
-    return database.query("SELECT event.id_event, event.name_event, event.desc_event, event.date_event, event.signup_event, images.link_image FROM event INNER JOIN images ON event.id_image=images.id_image");
+    return database.query("SELECT events.id_event, events.name_event, events.desc_event, events.date_event, events.signup_event, images.link_image FROM events INNER JOIN images ON events.id_image=images.id_image");
 }
 
 export const getEvent = async (id) => {
-    return database.query(`SELECT event.id_event, event.name_event, event.desc_event, event.date_event, event.signup_event, images.link_image FROM event INNER JOIN images ON event.id_image=images.id_image WHERE event.id_event = $1`,[id]);
+    return database.query(`SELECT events.id_event, events.name_event, events.desc_event, events.date_event, events.signup_event, images.link_image FROM events INNER JOIN images ON events.id_image=images.id_image WHERE events.id_event = $1`,[id]);
 }
 
 export const getNextEvent = async () => {
-    return database.query(`SELECT event.id_event, event.name_event, event.desc_event, event.date_event, event.signup_event, images.link_image FROM event INNER JOIN images ON event.id_image=images.id_image ORDER BY event.date_event DESC LIMIT 1`);
+    return database.query(`SELECT events.id_event, events.name_event, events.desc_event, events.date_event, events.signup_event, images.link_image FROM events INNER JOIN images ON events.id_image=images.id_image ORDER BY events.date_event DESC LIMIT 1`);
     
 }
 

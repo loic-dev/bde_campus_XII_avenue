@@ -28,6 +28,10 @@ export function getPanelsAPI(){
     return axios.get(`${url}api/panels`);
 }
 
+export function getNextEventAPI(){
+    return axios.get(`${url}api/event/next`);
+}
+
 
 
 

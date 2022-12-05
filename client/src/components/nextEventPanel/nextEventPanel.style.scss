@@ -1,0 +1,76 @@
+@import "./../../utils/global.style.scss";
+
+
+.container-image{
+    display: none;
+}
+
+.container-info{
+
+}
+
+.next-event-container{
+    background-color: $tertiary-color;
+    border-radius: 5px;
+    margin: 0 20px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.ne-title{
+    font-size: 1rem;
+    font-weight: 400;
+    border-bottom: 1px solid $main-orange;
+    width: fit-content;
+}
+
+.container-info{
+    display: flex;
+    flex-direction: column;
+}
+
+.next-event-panel{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+.ne-name{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.ne-date{
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.container-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+@media screen and (min-width:$tablet-min){
+
+    .next-event-panel{
+        max-width: 35%;
+        bottom: 50px;
+    }
+
+    
+
+    
+
+
+}

@@ -39,7 +39,7 @@ $headerHeight: 70px;
 .container{
     display: flex;
     position: relative;
-    z-index:1;
+    z-index:5;
     height: $headerHeight;
     padding: 0 30px;
     flex-direction: row;

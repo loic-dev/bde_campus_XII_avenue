@@ -3,9 +3,14 @@
 .homepage{
     background-color: $primary-color;
     height: 100%;
+    position: relative;
 }
 
 .container-row{
+    position: relative;
+}
+
+.container-next-event{
     position: relative;
 }
 
