@@ -1,26 +1,31 @@
-import "./rowPanelHome.style.scss";
+import { url } from "../../utils/API";
+import "./template1.style.scss";
 
-export const  RowPanelHome = ({page}) => {
-    let contenue
-    if (page === "homePage") {
-        contenue =  <h1>Présentation</h1> 
-    }else{
-            contenue = <h1>Titre</h1>
-    }
-
+export const  RowPanelHome = ({title, linkImage, description, reverse, template}) => {
+    
+   
     return (
-        <div class="rowPanelHome">
-            <div class="rowPanelHomeImage">
-                <img href="#"></img>
-            </div>
-            <div>
-                {contenue}
-                <div class="rowPanelHomeTxt">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-
+        template === 1 ?
+        <div className="row-panel">
+            <div className={`container-panel ${reverse ? 'reverse' : '' }`}>
+                <div className="panel-image" style={{backgroundImage:`url(${url+linkImage})`}}></div>
+                <div className="container-column">
+                    <span className="panel-title">{title}</span>
+                    <div className="panel-description">{description}</div>
                 </div>
             </div>
-        </div>   
+        </div>
+        
+        :
+
+        <div className="row-panel">
+            <div className="container-panel">
+                <span className="panel-title">{title}</span>
+                <div className="container-row">
+                    <div className="panel-description">{description}</div>
+                    <div className="panel-image" style={{backgroundImage:`url(${url+linkImage})`}}></div>
+                </div>
+            </div> 
+        </div>
     )
 }

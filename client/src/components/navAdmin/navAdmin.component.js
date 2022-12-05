@@ -3,9 +3,9 @@ import img from "../../images/fleche_bas.png"
 
 export const  NavAdmin = ({}) => {
     return (
-        <div class="navAdmin">
+        <div className="navAdmin">
             <ul className="navAdminMax">
-                <li><a class="accueil" href="#home">Accueil</a></li>
+                <li><a className="accueil" href="#home">Accueil</a></li>
                 <li><a href="#event">Evenements</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">Mon compte</a></li>

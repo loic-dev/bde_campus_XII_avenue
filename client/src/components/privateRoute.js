@@ -10,6 +10,7 @@ function PrivateRoute({ children }) {
     const navigate = useNavigate();
     const [isLoggedIn, setIsLoggedIn ] = useState(false);
 
+    
 
     const checkUserToken = async () => {
         try {
@@ -27,7 +28,7 @@ function PrivateRoute({ children }) {
 
     useEffect(() => {
         checkUserToken();
-    }, [isLoggedIn]);
+    }, []);
 
 
     return isLoggedIn ? children : <p>loading ...</p>;

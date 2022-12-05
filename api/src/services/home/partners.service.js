@@ -61,10 +61,6 @@ export const createPartnerService = async (req,res) => {
         console.log("error create partner: ", e)
         return res.status(403).send({error: "Something went wrong while insert partner"});
     }
-
-
-    
-    
 }
 
 

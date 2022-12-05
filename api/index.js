@@ -32,9 +32,6 @@ app.use('/public', express.static('public'));
 
 
 
-
-
-
 //database connexion
 export const database = new Pool({
   user: process.env.DB_USER,
@@ -44,8 +41,6 @@ export const database = new Pool({
   port: process.env.DB_PORT,
 });
 database.connect();
-
-
 
 
 //starting the server

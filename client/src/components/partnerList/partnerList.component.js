@@ -1,6 +1,7 @@
 import "./partnerList.style.scss";
 import {getPartnersAPI, url} from '../../utils/API';
 import { useEffect, useState } from "react";
+import { Spinner } from "../spinner/spinner.component";
 
 
 export const  PartnerList = ({}) => {
@@ -23,15 +24,22 @@ export const  PartnerList = ({}) => {
 
 
     return (
-        <div class="partnerList">
+        <div className="partnerList">
             <h1>NOS PARTENAIRES</h1>
-            <div class="list">
-                {listPartner.map(partner=> {
-                    return <div key={partner.id_partner}>
-                            <span style={{backgroundImage:`url(${url+partner.link_image})`}}></span>
-                            <p>{partner.name_partner}</p>
-                        </div>  
-                })}
+            <div className="list">
+                {listPartner.length > 0 ? 
+                    listPartner.map(partner=> {
+                        return <div key={partner.id_partner} className="partner-container">
+                                <span className="partner-image" style={{backgroundImage:`url(${url+partner.link_image})`}}></span>
+                                <p className="partner-name">{partner.name_partner}</p>
+                            </div>  
+                    })
+                
+                :
+
+                    <Spinner />
+            
+                }
             </div>
         </div>   
     )

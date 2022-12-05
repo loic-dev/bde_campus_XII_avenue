@@ -1,0 +1,52 @@
+@import "./../../utils/global.style.scss";
+
+.row-panel{
+    background-color: $tertiary-color;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 2rem;
+    padding-left: 5rem;
+    padding-right: 4rem;
+}
+
+.container-panel{
+    max-width: 1280px;
+    display: flex;
+    flex-direction: column;
+}
+
+.panel-title {
+    color : #EB5D0B;
+    padding-left: 18px;
+    font-weight: 600;
+    font-size: 1.8rem;
+}
+
+.panel-image {
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    min-width: 400px;
+    max-width: 400px;
+    min-height: 300px;
+    max-height: 300px;
+}
+
+
+
+  
+@media only screen and (min-width:1280px) {
+    .container-panel-home{
+        flex-direction: row;
+    }
+
+    .container-panel-home.reverse{
+        flex-direction: row-reverse;
+    }
+}
+
+  
+
+ 

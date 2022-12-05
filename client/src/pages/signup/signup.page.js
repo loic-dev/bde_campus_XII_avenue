@@ -60,7 +60,7 @@ export const SignupPage = () => {
                     <label>Password:
                         <input type="password" name="password" value={signup.password} onChange={handleChange} />
                     </label>
-                    <button type="submit" class="button-submit" value="Submit" disabled={!signup.lastname || !signup.firstname || !signup.email || !signup.password}>S'inscrire'</button>
+                    <button type="submit" className="button-submit" value="Submit" disabled={!signup.lastname || !signup.firstname || !signup.email || !signup.password}>S'inscrire'</button>
                 </form>
             </section>
         :

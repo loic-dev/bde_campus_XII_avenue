@@ -35,10 +35,6 @@ const router = createBrowserRouter([
       element: <SignupPage />
     },
     {
-      path: "/administration",
-      element: <PrivateRoute><AdminPage /></PrivateRoute>,
-    },
-    {
       path: "*",
       element: <NotFoundPage />,
     },

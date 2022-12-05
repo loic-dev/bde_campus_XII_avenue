@@ -54,7 +54,7 @@ export const LoginPage = () => {
                     <label>Password:
                         <input type="password" name="password" value={login.password} onChange={handleChange} />
                     </label>
-                    <button type="submit" class="button-submit" value="Submit" disabled={!login.login || !login.password}>Se connecter</button>
+                    <button type="submit" className="button-submit" value="Submit" disabled={!login.login || !login.password}>Se connecter</button>
                 </form>
             </section>
         :
