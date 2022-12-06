@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./header.style.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faChevronRight  } from '@fortawesome/free-solid-svg-icons'
-import {AiFillInstagram,AiFillCalendar,AiFillPhone,AiFillFacebook} from "react-icons/ai"
+import {AiFillInstagram,AiFillCalendar,AiFillHome,AiFillPhone,AiFillFacebook} from "react-icons/ai"
 
 
 
@@ -26,6 +26,13 @@ export const HeaderComponent = () => {
                 <div className="border-mobile-container"><span className={`border-mobile ${headerMobile ? "open" : "close"}`} ></span></div>
                 <div className={`link-container ${headerMobile ? "open" : "close"}`}>
                     <ul>
+                        <li>
+                            <Link className="link" to="/">
+                                <AiFillHome className="linkIcon" fontSize={"1.4rem"}/>
+                                <span>Accueil</span>
+                                <FontAwesomeIcon className="chevronLinkIcon"  icon={faChevronRight}/>
+                            </Link>
+                        </li> 
                         <li>
                             <Link className="link" to="/evenements">
                                 <AiFillCalendar className="linkIcon" fontSize={"1.4rem"}/>

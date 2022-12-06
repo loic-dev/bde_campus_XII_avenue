@@ -2,6 +2,8 @@ import "./nextEventPanel.style.scss";
 import moment from "moment"
 import { Popup } from "../popup/popup.component";
 import { useState } from "react";
+import { RegisterEventTemplate } from "../popup/template/registerEvent/registerEvent.template";
+import { InfoEventTemplate } from "../popup/template/infoEvent/infoEvent.template";
 
 export const NextEventPanel = ({name, date, linkImage, description, signup}) => {
 
@@ -25,8 +27,17 @@ export const NextEventPanel = ({name, date, linkImage, description, signup}) => 
     const dateFormat = new moment(date).format("DD-MM-YYYY HH:mm");
     return (
         <>
-            {popupInfo && <Popup title="information" action={changeStateRegister} close={changeStatePopupInfo} name={name} button="Passer à l'inscription" />}
-            {popupRegister && <Popup title="inscription" close={changeStateRegister} name={name}  button="S'inscrire" />}
+            {popupInfo && <Popup title="information" action={changeStateRegister} close={changeStatePopupInfo} name={name} button="Passer à l'inscription">
+
+                <InfoEventTemplate link={linkImage}  desc={description} />
+
+            </Popup>}
+            
+            
+            
+            {popupRegister && <Popup title="inscription" close={changeStateRegister} name={name}  button="S'inscrire">
+                <RegisterEventTemplate />
+            </Popup>}
             <section className="next-event-panel">
                 
                 <div className="next-event-container">

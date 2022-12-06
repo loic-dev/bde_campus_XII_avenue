@@ -12,15 +12,13 @@
     z-index: 100;
 }
 
-body{
-    overflow: hidden !important;
-}
+
 
 .popup{
     display: flex;
     position: absolute;
     top: 50%; 
-    left: 50%; 
+    left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
     justify-content: center;
@@ -30,12 +28,20 @@ body{
 .container-popup{
     max-width: 500px;
     min-height: 300px;
+    max-height: 70vh;
+    transform: scale(0);
     width: 100%;
     margin: 0 20px;
     display: flex;
+    border-radius: 5px;
     border: 5px;
     flex-direction: column;
     background-color: $secondary-color;
+    transition-duration: 0.3s;
+
+    &.active{
+        transform: scale(1);
+    }
 }
 
 .header-popup{
@@ -61,6 +67,8 @@ body{
 .body-popup{
     flex: 1;
     display: flex;
+    padding: 20px;
+    overflow: auto;
 }
 
 .c-title{
@@ -76,4 +84,19 @@ body{
     font-weight: 400;
     text-transform: capitalize;
     margin-left: 10px;
+}
+
+.c-close{
+    cursor: pointer;
+}
+
+@media screen and (min-width:$laptop-min){
+
+    
+    .container-popup {
+        max-width: 50%;
+    }
+    
+
+
 }

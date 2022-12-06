@@ -11,6 +11,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   color: white;
   background-color: $primary-color;
+
+  &.not-overflow{
+      overflow: hidden !important;
+  }
 }
 
 code {
