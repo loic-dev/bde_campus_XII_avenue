@@ -3,9 +3,10 @@ import './registerEvent.style.scss';
 export const RegisterEventTemplate = ({register, setRegister}) => {
 
 
+
     return (
         <div className="register-container-event">
-            {register.err && <p>{register.err}</p>}
+            {register.err && <div className='error-container'>{register.err}</div>}
             <div className="names-container">
                 <div className="input-container">
                     <label>Prénom</label>

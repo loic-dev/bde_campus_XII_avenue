@@ -58,6 +58,12 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 10px;
+    flex-direction: column;
+
+    button{
+        width: 100%;
+    }
 
 }
 
@@ -70,6 +76,10 @@
 
     .next-event-container{
         margin: 0;
+    }
+
+    .container-buttons{
+        flex-direction: row;
     }
     
 

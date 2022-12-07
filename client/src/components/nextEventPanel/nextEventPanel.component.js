@@ -60,8 +60,6 @@ export const NextEventPanel = ({id,name,handleAlert, date, linkImage, descriptio
         } catch (error) {
             handleErrorRegister(error.response.data.error);
         }
-       
-        setRegister(initialState)
     }
 
 
