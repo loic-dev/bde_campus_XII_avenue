@@ -14,6 +14,10 @@
     position: relative;
 }
 
+.section-next-event{
+    max-width: 100%;
+}
+
 .title-container{
     
     position: relative;
@@ -22,7 +26,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 500px;
+    height: 450px;
     margin-top: 10px;
     overflow: hidden;
     border-radius: 10px;
@@ -68,12 +72,24 @@
     }
 }
 
+.section-next-event{
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
 
 @media screen and (min-width:$tablet-min){
 
     .title-container{
         max-width: $laptop-max;
         margin: 0 30px;
+    }
+
+    .section-next-event{
+        max-width: 35%;
+        bottom: 60px;
+        
     }
 
 

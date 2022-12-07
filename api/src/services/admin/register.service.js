@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 import { createRegister, deleteRegister, getAllRegister, getOneRegister, getOneRegisterWithEmail, modifyRegister } from "../../models/registers.model.js";
 import { getEvent } from '../../models/events.model.js';
+import { emailValidator } from '../../utils/regex.util.js';
 
 export const createRegisterService = async (req,res) => {
 
@@ -14,6 +15,10 @@ export const createRegisterService = async (req,res) => {
 
         if(!id_event || !lastname_register || !firstname_register || !email_register){
             throw new Error("Missing arguments")
+        }
+
+        if(!emailValidator(email_register)){
+            throw new Error("Email bad format");
         }
 
         let event = await getEvent(id_event)

@@ -33,7 +33,7 @@ export const Popup = ({title, name,  button, children, close, action }) => {
                     </div>
                     <div className="body-popup">{children}</div>
                     <div className="footer-popup">
-                        <button onClick={action}>{button}</button>
+                        {button && <button onClick={action}>{button}</button>}
                     </div>
                 </div>
             </section>

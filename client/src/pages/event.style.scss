@@ -1,8 +1,44 @@
-body{
-    width: 100%;
-    max-width: 100%;
-}
+@import '../utils/global.style.scss';
+
 .eventPage{
     height: 100%;
     width: 100%;
+    position: relative;
+}
+
+.container-background{
+    position: relative;
+    background-image: url('../images/event_page_background2.png');
+    border-radius: 0 0 15px 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    overflow: hidden;
+    border-radius: 10px;
+    max-width: 1280px;
+    display: flex;
+    justify-content: center;
+}
+
+.eventpage-next-event{
+    position: absolute;
+    bottom: 20px;
+    width: 90%;
+}
+
+.page-title{
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-top: 50px;
+    text-transform: uppercase;
+}
+
+
+
+
+@media screen and (min-width:$tablet-min){
+    .container-background{
+        margin: 0 30px;
+    }
 }

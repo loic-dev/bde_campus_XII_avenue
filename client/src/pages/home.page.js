@@ -64,13 +64,16 @@ export const HomePage = () => {
                         <span>chez <span className="color-orange">Campus XII Avenue</span></span>
                     </div>
                 </div>
-                {nextEvent && <NextEventPanel name={nextEvent.name_event}
+                <div className="section-next-event">
+                    {nextEvent && <NextEventPanel name={nextEvent.name_event}
                         handleAlert={handleAlert}
                         id={nextEvent.id_event}
                         date={nextEvent.date_event}
                         description={nextEvent.desc_event}
                         linkImage={nextEvent.link_image}
                         signup={nextEvent.signup_event} />}
+                </div>
+                
             </div>
             <PartnerList/>
             <div className="container-row">

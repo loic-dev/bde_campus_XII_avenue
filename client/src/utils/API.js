@@ -36,6 +36,10 @@ export function createRegister(register){
     return axios.post(`${url}api/event/register/create`, register)
 }
 
+export function getAllEvents(){
+    return axios.get(`${url}api/events`)
+}
+
 
 
 
