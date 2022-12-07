@@ -1,0 +1,54 @@
+@import '../../utils/global.style.scss';
+
+
+.container-alert{
+    position: fixed;
+    width: 100%;
+    top: -200px;
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    transition-duration: 0.3s;
+
+    &.active{
+        top: 20px;
+    }
+
+    .alert{
+        display: flex;
+        width: 100%;
+        max-width: 400px;
+        background-color: transparent;
+        border: 3px solid transparent;
+        align-items: center;
+        border-radius: 3px;
+        padding: 15px;
+        margin: 0 20px;
+
+        &.success{
+            background-color: $success_light;
+            border-color: $success_dark;
+        }
+
+        &.error{
+            background-color: $error_light;
+            border-color:$error_dark;
+        }
+
+        span{
+            font-size: 1rem;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and (min-width: $tablet-min){
+
+    
+    .container-alert{
+        justify-content: flex-start;
+        min-width: 200px;
+    }   
+
+
+}

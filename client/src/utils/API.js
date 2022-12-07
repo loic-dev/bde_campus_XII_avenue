@@ -32,6 +32,10 @@ export function getNextEventAPI(){
     return axios.get(`${url}api/event/next`);
 }
 
+export function createRegister(register){
+    return axios.post(`${url}api/event/register/create`, register)
+}
+
 
 
 

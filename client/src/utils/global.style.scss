@@ -4,6 +4,10 @@ $tertiary-color: #1E1932;
 $main_white:#FFFFFF;
 $main_orange: #EB5D0B;
 $main_pink:#fe71c9;
+$success_light:#198754;
+$success_dark:#146c43;
+$error_light:#dc3545;
+$error_dark:#b02a37;
 $overlay:rgba(0,0,0,0.9);
 
 
@@ -30,4 +34,6 @@ button {
     font-family: 'Montserrat';
     font-weight: 500;
     cursor: pointer;
+    position: relative;
 }
+

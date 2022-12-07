@@ -1,15 +1,68 @@
 import "./nextEventPanel.style.scss";
 import moment from "moment"
 import { Popup } from "../popup/popup.component";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { RegisterEventTemplate } from "../popup/template/registerEvent/registerEvent.template";
 import { InfoEventTemplate } from "../popup/template/infoEvent/infoEvent.template";
+import { createRegister } from "../../utils/API";
 
-export const NextEventPanel = ({name, date, linkImage, description, signup}) => {
+export const NextEventPanel = ({id,name,handleAlert, date, linkImage, description, signup}) => {
 
+    const initialState = {
+        lastname:"",
+        firstname:"",
+        email:"",
+        comment:"",
+        loading:false,
+        err:""
+    }
 
     const [popupInfo, setPopupInfo] = useState(false);
     const [popupRegister, setPopupRegister] = useState(false);
+    const [register, setRegister] = useState(initialState);
+    
+
+    const handleChangeRegister = evt => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        setRegister({
+          ...register,
+          [name]: value
+        })
+    }
+
+
+
+    const handleErrorRegister = (value) => {
+        setRegister({
+            ...register,
+            err: value
+        })
+    }
+
+    
+    
+    const handleSubmitRegister = async () => {
+        
+        try {
+            let body = {
+                id_event:id,
+                lastname_register:register.lastname,
+                firstname_register:register.firstname,
+                comment_register:register.comment,
+                email_register:register.email,
+            }
+            await createRegister(body);
+            changeStateRegister();
+            handleAlert("Votre inscription a bien été enregistré","success");
+            
+            
+        } catch (error) {
+            handleErrorRegister(error.response.data.error);
+        }
+       
+        setRegister(initialState)
+    }
 
 
     const changeStatePopupInfo = () => {
@@ -21,6 +74,7 @@ export const NextEventPanel = ({name, date, linkImage, description, signup}) => 
         setPopupRegister(!popupRegister);
         setPopupInfo(false);
     }
+     
 
 
 
@@ -35,8 +89,8 @@ export const NextEventPanel = ({name, date, linkImage, description, signup}) => 
             
             
             
-            {popupRegister && <Popup title="inscription" close={changeStateRegister} name={name}  button="S'inscrire">
-                <RegisterEventTemplate />
+            {popupRegister && <Popup title="inscription" action={handleSubmitRegister} close={changeStateRegister} name={name}  button="S'inscrire">
+                <RegisterEventTemplate register={register} setRegister={handleChangeRegister} />
             </Popup>}
             <section className="next-event-panel">
                 

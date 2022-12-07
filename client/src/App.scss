@@ -1,0 +1,32 @@
+@import './utils/global.style.scss';
+
+
+.input-container{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    
+    .input {
+        background-color: $primary-color;
+        padding: 12px 10px;
+        font-size: 0.9rem;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-family: 'Montserrat';
+    }
+
+    textarea{
+        min-height: 100px;
+        margin-bottom: 20px;
+        resize: none;
+    }
+
+    label{
+        font-size: 0.9rem;
+        font-family: 'Montserrat';
+    }
+}

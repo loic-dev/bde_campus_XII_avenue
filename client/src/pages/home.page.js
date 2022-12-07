@@ -6,17 +6,39 @@ import { getNextEventAPI, getPanelsAPI } from "../utils/API";
 import { useState , useEffect} from "react";
 import { HeadNextEvent } from "../components/headNextEvent/headNextEvent.component";
 import { NextEventPanel } from "../components/nextEventPanel/nextEventPanel.component";
+import { Alert } from "../components/alert/alert.component";
 
 
 export const HomePage = () => {
 
     const [listPanels, setListPanels] = useState([])
     const [nextEvent, setNextEvent] = useState(null);
+    const [alert, setAlert] = useState({
+        message:"",
+        status:""
+    });
 
 
+    useEffect(() => {
+        if(alert.message !== ""){
+            setTimeout(() => {
+                setAlert({
+                    message:"",
+                    status:""
+                })
+            }, 3500);
+        }
+    }, [alert])
 
+    const handleAlert = (message, status) => {
+        setAlert({
+            message:message,
+            status:status
+        })
+    }
     
     useEffect(() => {
+        
         let fetchData = async () => {
             try {
                 const panel = await getPanelsAPI();
@@ -33,6 +55,7 @@ export const HomePage = () => {
 
     return (
         <section className="homepage">
+            <Alert message={alert.message} status={alert.status}/>
             <HeaderComponent/>
             <div className="title-container">
                 <div className="title-section">
@@ -40,12 +63,10 @@ export const HomePage = () => {
                         <span className="uppercase">bienvenue</span>
                         <span>chez <span className="color-orange">Campus XII Avenue</span></span>
                     </div>
-                    
-                       
-                   
-                    
                 </div>
                 {nextEvent && <NextEventPanel name={nextEvent.name_event}
+                        handleAlert={handleAlert}
+                        id={nextEvent.id_event}
                         date={nextEvent.date_event}
                         description={nextEvent.desc_event}
                         linkImage={nextEvent.link_image}

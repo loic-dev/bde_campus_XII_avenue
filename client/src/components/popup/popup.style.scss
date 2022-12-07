@@ -28,7 +28,7 @@
 .container-popup{
     max-width: 500px;
     min-height: 300px;
-    max-height: 70vh;
+    max-height: 90vh;
     transform: scale(0);
     width: 100%;
     margin: 0 20px;
@@ -67,7 +67,8 @@
 .body-popup{
     flex: 1;
     display: flex;
-    padding: 20px;
+    padding: 10px;
+    margin: 10px;
     overflow: auto;
 }
 
