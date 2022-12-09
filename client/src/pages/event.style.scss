@@ -6,6 +6,13 @@
     position: relative;
 }
 
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
 .container-background{
     position: relative;
     background-image: url('../images/event_page_background2.png');
@@ -15,8 +22,8 @@
     background-size: cover;
     height: 450px;
     overflow: hidden;
+    width: 100%;
     border-radius: 10px;
-    max-width: 1280px;
     display: flex;
     justify-content: center;
 }
@@ -39,6 +46,11 @@
 
 @media screen and (min-width:$tablet-min){
     .container-background{
-        margin: 0 30px;
+        max-width: $laptop-max;
     }
+
+    .wrapper{
+        padding: 0 30px;
+    }
+    
 }

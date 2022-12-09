@@ -6,11 +6,17 @@
     margin: 60px 0;
     font-size: 1.8rem;
 }
+.listEvent{
+  max-width: 1280px;
+  width: 100%;
+}
+
 
 .allEvent {
     display: flex;
     flex-wrap: wrap;
     gap : 180px;
+    
     margin-left: 30px;
     margin-right: 30px;
     justify-content: center;

@@ -57,24 +57,28 @@ export const HomePage = () => {
         <section className="homepage">
             <Alert message={alert.message} status={alert.status}/>
             <HeaderComponent/>
-            <div className="title-container">
-                <div className="title-section">
-                    <div className="title">
-                        <span className="uppercase">bienvenue</span>
-                        <span>chez <span className="color-orange">Campus XII Avenue</span></span>
+            <div className="home-wrapper">
+                <div className="title-container">
+                    <div className="title-section">
+                        <div className="title">
+                            <span className="uppercase">bienvenue</span>
+                            <span>chez <span className="color-orange">Campus XII Avenue</span></span>
+                        </div>
                     </div>
+                    <div className="section-next-event">
+                        {nextEvent && <NextEventPanel name={nextEvent.name_event}
+                            handleAlert={handleAlert}
+                            id={nextEvent.id_event}
+                            date={nextEvent.date_event}
+                            description={nextEvent.desc_event}
+                            linkImage={nextEvent.link_image}
+                            signup={nextEvent.signup_event} />}
+                    </div>
+                    
                 </div>
-                <div className="section-next-event">
-                    {nextEvent && <NextEventPanel name={nextEvent.name_event}
-                        handleAlert={handleAlert}
-                        id={nextEvent.id_event}
-                        date={nextEvent.date_event}
-                        description={nextEvent.desc_event}
-                        linkImage={nextEvent.link_image}
-                        signup={nextEvent.signup_event} />}
-                </div>
-                
+
             </div>
+            
             <PartnerList/>
             <div className="container-row">
                 {listPanels.length > 0 &&

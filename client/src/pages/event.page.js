@@ -57,21 +57,25 @@ export const EventPage = () => {
     return (
         <section className="eventPage">
             <HeaderComponent/>
-            <div className="container-background">
-                <span className="page-title">Evénéments</span>
-                <div className="eventpage-next-event">
-                    {listEvent.length !== 0 && <NextEventPanel name={listEvent[0].name_event}
-                                handleAlert={handleAlert}
-                                id={listEvent[0].id_event}
-                                date={listEvent[0].date_event}
-                                description={listEvent[0].desc_event}
-                                linkImage={listEvent[0].link_image}
-                                signup={listEvent[0].signup_event} />}
+            <div className="wrapper">
+                <div className="container-background">
+                    <span className="page-title">Evénéments</span>
+                    <div className="eventpage-next-event">
+                        {listEvent.length !== 0 && <NextEventPanel name={listEvent[0].name_event}
+                                    handleAlert={handleAlert}
+                                    id={listEvent[0].id_event}
+                                    date={listEvent[0].date_event}
+                                    description={listEvent[0].desc_event}
+                                    linkImage={listEvent[0].link_image}
+                                    signup={listEvent[0].signup_event} />}
 
+                    </div>
+                
                 </div>
-            
+                {listEvent.length === 0 ? <Spinner/> : <ListEvent listEvent={listEvent}/>}
             </div>
-            {listEvent.length === 0 ? <Spinner/> : <ListEvent listEvent={listEvent}/>}
+            
+           
         </section>  
     )
   
