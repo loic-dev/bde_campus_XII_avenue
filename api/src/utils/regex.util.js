@@ -8,6 +8,6 @@ export const emailValidator = (email) => {
 
 // one digit, lower case, upper case , 8 characters
 export const passwordValidator = (password) => {
-    return password ? (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/).test(password) : false;
+    return password ? (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/).test(password) : false;
 }
 

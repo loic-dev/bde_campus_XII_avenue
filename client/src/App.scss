@@ -31,6 +31,16 @@
     }
 }
 
+.error-container{
+    display: flex;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid $error_dark;
+    background-color: $error_light;
+    color: $main_white;
+}
+
+
 /* width */
 ::-webkit-scrollbar {
     width: 5px;

@@ -11,7 +11,7 @@ export const NotFoundPage = () => {
             <div className="container-text">
                 <p>Oups, cette page est introuvable !</p>
                 <Link to="/">
-                    <button>Retour à l'acceuil</button>           
+                    <button>Retour à l'accueil</button>           
                 </Link>
             </div> 
             

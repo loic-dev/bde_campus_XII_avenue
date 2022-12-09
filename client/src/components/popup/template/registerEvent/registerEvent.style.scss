@@ -13,14 +13,7 @@
     gap: 20px;
 }
 
-.error-container{
-    display: flex;
-    border-radius: 5px;
-    padding: 10px;
-    border: 2px solid $error_dark;
-    background-color: $error_light;
-    color: $main_white;
-}
+
 
 
 @media screen and (min-width:$tablet-min){

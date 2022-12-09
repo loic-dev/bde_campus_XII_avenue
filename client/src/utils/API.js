@@ -7,8 +7,7 @@ export const url = "https://loic-dev-urban-space-rotary-phone-vrjrqrwg4w9hxvjx-8
 
 export function auth(){
     return axios.get(`${url}api/auth`,  {headers:{
-        "Content-Type": "application/json",
-        "authorization": sendHeaderToken,
+        "Authorization": sendHeaderToken,
     }});
 }
 

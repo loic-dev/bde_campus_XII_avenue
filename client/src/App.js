@@ -2,7 +2,6 @@ import './App.scss';
 import {
     createBrowserRouter,
     RouterProvider,
-    Route,
   } from "react-router-dom";
 import { NotFoundPage } from './pages/notFound/notFound.page';
 import { LoginPage } from './pages/login/login.page';
