@@ -1,0 +1,115 @@
+@import "./../../utils/global.style.scss";
+
+.eventAdmin{
+    display: flex;
+    flex-direction: column;
+    margin-right: 50px;
+}
+
+.headEventAdmin{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnAddEvent{
+    background-color: $main_orange;
+    height: 40px;
+    color: white;
+    font-size: 120%;
+    border-radius: 8px;
+}
+
+.headEventAdmin h1 {
+    margin-top: 0px;
+    margin-bottom: 60px;
+}
+
+.allAdminEvent{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    gap: 25px;
+}
+
+.oneAdminEvent{
+    width: 320px;
+    height: 400px;
+    background-color: $tertiary-color;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.headOneAdminEvent{
+    display: flex;
+    justify-content: space-between;
+    font-size: 120%;
+}
+
+
+.headOneAdminEvent .dotImg{
+    width: 25px;
+    cursor: pointer;
+}
+
+.imgAdminEvent{
+    width: 320px;
+    height: 190px;
+    background-color: rgb(174, 174, 174);
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+.infoAdminEvent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+/********** Gerer l'evenement**********/
+
+.optionActive{
+    width: 320px;
+    height: 400px;
+    padding: 20px !important;
+    position: absolute;
+    background-color: $primary-color;
+    opacity: 0.6;
+    border-radius: 6px;
+    margin-top: -20px;
+    margin-left: -20px;
+}
+
+
+.optionEventAdmin{
+    position: absolute;
+    background-color: $tertiary-color;
+    width: 200px;  
+    border-radius: 6px;
+    margin-left: 90px;
+    margin-top: 25px;
+}
+
+.optionEventAdmin div {
+    padding: 10px;
+}
+
+.modifierOptionEventAdmin{
+    border-bottom: solid 2px $primary-color;
+}
+
+.inscriptionOptionEventAdmin{
+    border-bottom: solid 2px $primary-color;
+}
+
+@media screen and (max-width:$tablet-max) {
+    .eventAdmin{
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width:$mobile-max) {
+    .eventAdmin{
+        margin-right: 0px;
+    }
+}

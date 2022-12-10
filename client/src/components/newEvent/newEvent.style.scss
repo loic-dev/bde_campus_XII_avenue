@@ -1,0 +1,79 @@
+@import "./../../utils/global.style.scss";
+
+.newEvent{
+    margin-top: 50px; 
+    width: 850px;
+    margin: auto;
+}
+
+.formNewEvent{  
+    display: flex;
+    flex-direction: column;
+}
+
+.formNewEvent label{
+    font-size: 115%;
+    padding: 8px;
+}
+
+.formNewEvent input, textarea{
+    background-color: $tertiary-color;
+    border: 0;
+    height: 25px;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-indent: 5px;
+    font-size: 110%;
+    padding: 5px;
+}
+
+.formNewEvent input[type=radio]{
+    width: 17px;
+    margin: 0px;
+}
+
+.formNewEvent textarea{
+    height: 100px;
+}
+
+input[type='radio']:checked:after {
+    width: 10px;
+    height: 10px;
+    border-radius: 15px;
+    top: 1px;
+    left: -2px;
+    position: relative;
+    background-color: #ffa500;
+    content: '';
+    display: inline-block;
+    visibility: visible;
+}
+
+.labelRadio{
+    vertical-align: 5px;
+}
+
+@media screen and (max-width:1160px) {
+    .newEvent{
+        width: 767px;
+    }
+}
+
+@media screen and (max-width:900px) {
+    .newEvent{
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:$mobile-max) {
+    .newEvent{
+        width: 440px;
+    }
+}
+
+@media screen and (max-width:$mobile-min) {
+    .newEvent{
+        width: 350px;
+    }
+}
