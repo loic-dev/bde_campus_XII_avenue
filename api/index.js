@@ -31,7 +31,6 @@ app.use("/api", router);
 app.use('/public', express.static('public'));
 
 
-
 //database connexion
 export const database = new Pool({
   user: process.env.DB_USER,
@@ -43,7 +42,9 @@ export const database = new Pool({
 database.connect();
 
 
+const port = process.env.PORT || 8000;
+
 //starting the server
-if (process.env.NODE_ENV === 'developpment') {
-    app.listen(process.env.API_PORT, () => {console.log(`listening on port ${process.env.API_PORT}`);});
+if (process.env.NODE_ENV !== 'test') {
+    app.listen(port, () => {console.log(`listening on port ${process.env.API_PORT}`);});
 }

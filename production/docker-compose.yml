@@ -1,0 +1,86 @@
+version: '3.7'
+
+services:
+  
+  database:
+    image: postgres
+    container_name: c_postgres_prod
+    restart: always
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    volumes:
+      - data-volume-prod:/data/db
+      - ../database/dump.sql:/docker-entrypoint-initdb.d/dump.sql
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    networks:
+      - app-private-network-prod
+
+  nginx:
+    build:
+      context: ../nginx
+      dockerfile: Dockerfile
+    container_name: webserver
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    networks:
+     - app-private-network-prod
+    volumes:
+      - ../client/build:/app
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - api1
+      - api2
+
+
+  api1:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    image: i_api_prod
+    restart: always
+    container_name: c_api_prod_1
+    command: node index.js
+    volumes:
+      - ../api/:/app
+      - ../api/node_modules:/app/node_modules
+    ports:
+      - "3050:${API_PORT}"
+    env_file: 
+      - .env
+    depends_on:
+      - database
+    networks:
+     - app-private-network-prod
+
+  api2:
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    image: i_api_prod
+    restart: always
+    container_name: c_api_prod_2
+    command: node index.js
+    volumes:
+      - ../api/:/app
+      - ../api/node_modules:/app/node_modules
+    ports:
+      - "3051:${API_PORT}"
+    env_file: 
+      - .env
+    depends_on:
+      - database
+    networks:
+     - app-private-network-prod
+    
+
+networks:
+    app-private-network-prod:
+        driver: bridge
+
+volumes:
+    data-volume-prod:
+    web-root:
+      driver: local
