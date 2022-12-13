@@ -54,9 +54,10 @@
 .imgAdminEvent{
     width: 320px;
     height: 190px;
-    background-color: rgb(174, 174, 174);
     border-radius: 8px;
-    margin-top: 20px;
+    margin-top: 20px; background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .infoAdminEvent{
@@ -80,6 +81,9 @@
     margin-left: -20px;
 }
 
+.optionEventAdmin div:hover{
+    background-color: $main_orange;
+}
 
 .optionEventAdmin{
     position: absolute;
@@ -100,6 +104,11 @@
 
 .inscriptionOptionEventAdmin{
     border-bottom: solid 2px $primary-color;
+}
+
+.dotImg2{
+    width: 8%;
+    margin-left: 91.7%;
 }
 
 @media screen and (max-width:$tablet-max) {

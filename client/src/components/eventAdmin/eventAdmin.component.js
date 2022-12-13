@@ -1,96 +1,92 @@
 import "./eventAdmin.style.scss";
 import dotImg from "../../images/dots.png"
+import { useEffect, useState } from "react";
+import { deleteEventService, getAllEvents } from "../../utils/API";
+import { url } from "../../utils/API";
 
 export const EventAdmin = () => {
 
-    function optionAdminEvent(){
-        console.log("TestOk");
+    const [listEvent, setListEvent] = useState([]);
+
+    const [opacity, setOpacity] = useState("0");
+    const [display, setDisplay] = useState("none");
+    const [affiche, setAffiche] = useState(false);
+
+    async function deleteEvent(id){
+        console.log(id)
+        let data = {id:id};
+        await deleteEventService(data);
+        fetchData();
     }
+
+
+    async function createEvent(name,desc,id_image,date,signup){
+        let data = {name:name,desc:desc,id_image:id_image,date:date,signup:signup}
+    }
+
+    let fetchData = async () => {
+        try {
+            const events = await getAllEvents();
+            setListEvent(events.data.data);
+            console.log(events.data.data);
+        } catch (error) {
+            console.log(error)
+        }
+    };
+
+    useEffect(() => { 
+        fetchData();
+    }, [])
+
+    function voirAffiche(){
+        if(!affiche){
+            setDisplay("block");
+            setOpacity("0,6");
+            setAffiche(true);
+            console.log("On affiche + " + affiche);
+        }else{
+            setAffiche(false);
+            setDisplay("none");
+            setOpacity("1");
+            console.log("nn" + affiche + "  " + display);
+        }
+    }
+
     return (
         <div className="eventAdmin">
+            opacity = {opacity}
             <div className="headEventAdmin">
                 <h1>Evenements</h1>
                 <button className="btnAddEvent">Ajouter evenement</button>
             </div>
             <div className="allAdminEvent">
-                <div className="oneAdminEvent">
-                    <div className="optionActive"></div>
-                    <div className="optionEventAdmin">
-                        <div className="modifierOptionEventAdmin">{">"} Modifier</div>
-                        <div className="inscriptionOptionEventAdmin">{">"} Inscription</div>
-                        <div className="supprimerOptionEventAdmin">{">"} Supprimer</div>
-                    </div>
-                    <div className="headOneAdminEvent">
-                        <div>Soirée loft</div>
-                        <img className="dotImg" alt="Apres click affiche les options modifier et supprimer" src={dotImg} onClick={optionAdminEvent}/>
-                    </div>
-                    <div className="imgAdminEvent">
-                    </div>
-                    <div className="infoAdminEvent">
-                        <div>28/05/2023</div>
-                        <div>10 inscrits</div>
-                    </div>
-                    <div>idustry. Lorem Ipsum has been thmm when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, rema</div>
+                
+                    {listEvent.map((event) => {
+                    return (
+                        <div className="oneAdminEvent" key={event.id_event}>
+                            <div onClick={voirAffiche} className="optionActive" style={{display:display}}>
+                                <img onClick={voirAffiche} className="dotImg2" alt="Apres click affiche les options modifier et supprimer" src={dotImg} />
+                            </div>
+                            <div className="optionEventAdmin" style={{display:display}}>
+                                <div className="modifierOptionEventAdmin">{">"} Modifier</div>
+                                <div className="inscriptionOptionEventAdmin">{">"} Inscription</div>
+                                <div  onClick={() => deleteEvent(event.id_event)} className="supprimerOptionEventAdmin">{">"} Supprimer</div>
+                            </div>
+                            <div className="headOneAdminEvent">
+                                <div>{event.name_event}</div>
+                                <img onClick={voirAffiche} className="dotImg" alt="Apres click affiche les options modifier et supprimer" src={dotImg} />
+                            </div>
+                            <div className="imgAdminEvent" style={{backgroundImage:`url(${url+event.link_image})`}}>
+                            </div>
+                            <div className="infoAdminEvent">
+                                <div>{event.date_event}</div>
+                                <div className="nb_inscrit"></div>
+                            </div>
+                            <div>{event.desc_event}</div>
+                        </div>
+                        )
+                    })}
                 </div>
-
-                <div className="oneAdminEvent">
-                    <div className="headOneAdminEvent">
-                        <div>Soirée loft</div>
-                        <img className="dotImg" src={dotImg}/>
-                    </div>
-                    <div className="imgAdminEvent">
-                    </div>
-                    <div className="infoAdminEvent">
-                        <div>28/05/2023</div>
-                        <div>10 inscrits</div>
-                    </div>
-                    <div>idustry. Lorem Ipsum has been thmm when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, rema</div>
-                </div>
-
-                <div className="oneAdminEvent">
-                    <div className="headOneAdminEvent">
-                        <div>Soirée loft</div>
-                        <img className="dotImg" src={dotImg}/>
-                    </div>
-                    <div className="imgAdminEvent">
-                    </div>
-                    <div className="infoAdminEvent">
-                        <div>28/05/2023</div>
-                        <div>10 inscrits</div>
-                    </div>
-                    <div>idustry. Lorem Ipsum has been thmm when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, rema</div>
-                </div>
-
-
-                <div className="oneAdminEvent">
-                    <div className="headOneAdminEvent">
-                        <div>Soirée loft</div>
-                        <img className="dotImg" src={dotImg}/>
-                    </div>
-                    <div className="imgAdminEvent">
-                    </div>
-                    <div className="infoAdminEvent">
-                        <div>28/05/2023</div>
-                        <div>10 inscrits</div>
-                    </div>
-                    <div>idustry. Lorem Ipsum has been thmm when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, rema</div>
-                </div>
-
-
-                <div className="oneAdminEvent">
-                    <div className="headOneAdminEvent">
-                        <div>Soirée loft</div>
-                        <img className="dotImg" src={dotImg}/>
-                    </div>
-                    <div className="imgAdminEvent">
-                    </div>
-                    <div className="infoAdminEvent">
-                        <div>28/05/2023</div>
-                        <div>10 inscrits</div>
-                    </div>
-                    <div>idustry. Lorem Ipsum has been thmm when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, rema</div>
-                </div>
-            </div>
         </div>
     )
 }

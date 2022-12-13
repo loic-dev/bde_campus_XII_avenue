@@ -39,6 +39,12 @@ export function getAllEvents(){
     return axios.get(`${url}api/events`)
 }
 
+export function deleteEventService(send){
+    return axios.post(`${url}api/event/delete`, send,  {headers:{
+        "Authorization": sendHeaderToken,
+    }})
+}
+
 
 
 
