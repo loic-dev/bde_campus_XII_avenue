@@ -45,6 +45,11 @@ export function deleteEventService(send){
     }})
 }
 
+export function createEventService(send){
+    return axios.post(`${url}api/event/create`, send,  {headers:{
+        "Authorization": sendHeaderToken,
+    }})
+}
 
 
 

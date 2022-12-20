@@ -6,6 +6,17 @@
     margin: auto;
 }
 
+.btnAddEvent2{
+    background-color: $main_orange;
+    height: 40px;
+    color: white;
+    font-size: 120%;
+    border-radius: 8px;
+    width: 170px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 .formNewEvent{  
     display: flex;
     flex-direction: column;
@@ -69,6 +80,11 @@ input[type='radio']:checked:after {
 @media screen and (max-width:$mobile-max) {
     .newEvent{
         width: 440px;
+    }
+
+    .btnAddEvent2{
+        margin: auto;
+        margin-top: 15px;
     }
 }
 

@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import moment from 'moment';
 
 export const createEventService = async (req,res) => {
-
+    console.log("create test")
     let { name, desc, date, signup } = req.body;
     let id_image = req.id_image;
 

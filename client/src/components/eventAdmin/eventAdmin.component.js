@@ -19,11 +19,6 @@ export const EventAdmin = () => {
         fetchData();
     }
 
-
-    async function createEvent(name,desc,id_image,date,signup){
-        let data = {name:name,desc:desc,id_image:id_image,date:date,signup:signup}
-    }
-
     let fetchData = async () => {
         try {
             const events = await getAllEvents();
@@ -54,13 +49,11 @@ export const EventAdmin = () => {
 
     return (
         <div className="eventAdmin">
-            opacity = {opacity}
             <div className="headEventAdmin">
                 <h1>Evenements</h1>
-                <button className="btnAddEvent">Ajouter evenement</button>
+                <a href="#ajouterEvenement" className="btnAddEvent" >Ajouter evenement</a>
             </div>
-            <div className="allAdminEvent">
-                
+            <div className="allAdminEvent"> 
                     {listEvent.map((event) => {
                     return (
                         <div className="oneAdminEvent" key={event.id_event}>

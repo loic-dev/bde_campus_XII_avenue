@@ -1,3 +1,4 @@
+
 @import "./../../utils/global.style.scss";
 
 .eventAdmin{
@@ -13,10 +14,15 @@
 
 .btnAddEvent{
     background-color: $main_orange;
-    height: 40px;
+    text-decoration: none;
     color: white;
     font-size: 120%;
     border-radius: 8px;
+    vertical-align: middle;
+    width: 220px;
+    padding: 8px;
+    height: fit-content;
+    text-align: center;
 }
 
 .headEventAdmin h1 {
@@ -83,6 +89,7 @@
 
 .optionEventAdmin div:hover{
     background-color: $main_orange;
+    cursor: pointer;
 }
 
 .optionEventAdmin{
@@ -120,5 +127,9 @@
 @media screen and (max-width:$mobile-max) {
     .eventAdmin{
         margin-right: 0px;
+    }
+
+    .btnAddEvent{
+        display: none;
     }
 }

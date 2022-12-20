@@ -30,7 +30,7 @@ export const LoginPage = () => {
 
       
     let handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // permet de ne pas recharger la page
         if(!disabled){
             setLoading(true)
             try {
