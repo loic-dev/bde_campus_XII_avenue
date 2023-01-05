@@ -53,5 +53,17 @@ button {
     width: 150px;
     height: 150px;
     border-radius: 10px;
-    background-color: grey;
+    background-size: cover;
+    margin: 10px 0;
+}
+
+.addImgEventPanel{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: $tertiary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
 }

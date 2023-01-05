@@ -4,29 +4,40 @@
 .eventAdmin{
     display: flex;
     flex-direction: column;
-    margin-right: 50px;
+    flex: 1;
 }
 
 .headEventAdmin{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.backToMainSection{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
 
 .btnAddEvent{
     background-color: $main_orange;
     text-decoration: none;
     color: white;
-    font-size: 120%;
-    border-radius: 8px;
-    vertical-align: middle;
+    font-size: 1rem;
+    border-radius: 5px;
     width: 100%;
-    max-width: 200px;
+    max-width: 320px;
     padding: 8px 0;
-    height: fit-content;
     text-align: center;
+    cursor: pointer;
 }
 
 .headEventAdmin h1 {
+    display: none;
     margin-top: 0px;
 }
 
@@ -35,22 +46,32 @@
     flex-wrap:wrap;
     justify-content: flex-start;
     gap: 25px;
+    flex: 1;
 }
 
 .oneAdminEvent-card{
-    width: 200px;
-    height: 250px;
-    background-color: $tertiary-color;
-    padding: 20px;
-    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    
 }
 
 .oneAdminEvent{
+    background-color: $tertiary-color;
+    border-radius: 5px;
+    padding: 20px;
     position: relative;
-    &.hidden .oneAdminEvent-card {
+    max-width: 260px;
+    width: 100%;
+    min-width: 200px;
+    height: 280px;
+
+
+
+
+    &.hidden {
         background-color: rgba(30, 25, 50,0.3);
 
-        div:not(.headOneAdminEvent){
+        .oneAdminEvent-card div:not(.headOneAdminEvent){
             opacity: 0.3;
         }
         

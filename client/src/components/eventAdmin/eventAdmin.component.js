@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 import { deleteEventService, getAllEvents } from "../../utils/API";
 import { url } from "../../utils/API";
 import {FaTimes,FaTrashAlt} from "react-icons/fa"
-import {BsThreeDotsVertical} from "react-icons/bs"
+import {BsThreeDotsVertical,BsArrowLeftShort} from "react-icons/bs"
+import { NewEvent } from "../newEvent/newEvent.component.js"
 
 export const EventAdmin = () => {
 
@@ -38,9 +39,31 @@ export const EventAdmin = () => {
     const handleSetAddEventSection = () => {
         setAddEventSection(!addEventSection)
     }
+
+    const backToMain = () => {
+        handleSetAddEventSection();
+        fetchData();
+    }
    
     return (
         <div className="eventAdmin">
+            {addEventSection ?
+
+            <>
+                <div className="backToMainSection" onClick={handleSetAddEventSection}>
+                    <BsArrowLeftShort/>
+                    <span>retour</span>
+                </div>
+                <NewEvent backToMain={backToMain}/>
+            
+            </>
+           
+           
+    
+    
+            :
+    
+            <>
             <div className="headEventAdmin">
                 <h1>Evenements</h1>
                 <span className="btnAddEvent" onClick={handleSetAddEventSection}>Ajouter evenement</span>
@@ -77,7 +100,7 @@ export const EventAdmin = () => {
                         </div>
                         )
                     })}
-                </div>
+                </div></>}
         </div>
     )
 }
