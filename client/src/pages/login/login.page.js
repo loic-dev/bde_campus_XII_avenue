@@ -30,14 +30,14 @@ export const LoginPage = () => {
 
       
     let handleSubmit = async (e) => {
+        console.log("test")
         e.preventDefault(); // permet de ne pas recharger la page
         if(!disabled){
             setLoading(true)
             try {
                 let response = await loginAPI(login)
-                console.log(response)
                 sessionStorage.setItem('token',response.data.token)
-                navigate("/administration")
+                window.location.href = "../administration"
             } catch (error) {
                 console.log(error.response.data.error)
                 setErr(error.response.data.error);

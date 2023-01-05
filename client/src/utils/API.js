@@ -2,7 +2,7 @@ import axios from "axios";
 var sendHeaderToken = "Bearer "+sessionStorage.getItem("token");
 
 
-export const url = "http://localhost:8000/";
+export const url = "https://loic-dev-bookish-pancake-vrjrqrwqv74fw9g6-8000.preview.app.github.dev/";
 
 
 export function auth(){

@@ -1,19 +1,18 @@
 import "./eventAdmin.style.scss";
-import dotImg from "../../images/dots.png"
+import moment from "moment"
 import { useEffect, useState } from "react";
 import { deleteEventService, getAllEvents } from "../../utils/API";
 import { url } from "../../utils/API";
+import {FaTimes,FaTrashAlt} from "react-icons/fa"
+import {BsThreeDotsVertical} from "react-icons/bs"
 
 export const EventAdmin = () => {
 
     const [listEvent, setListEvent] = useState([]);
-
-    const [opacity, setOpacity] = useState("0");
-    const [display, setDisplay] = useState("none");
-    const [affiche, setAffiche] = useState(false);
+    const [selectEvent, setSelectEvent] = useState(null)
+    const [addEventSection, setAddEventSection] = useState(false)
 
     async function deleteEvent(id){
-        console.log(id)
         let data = {id:id};
         await deleteEventService(data);
         fetchData();
@@ -23,7 +22,6 @@ export const EventAdmin = () => {
         try {
             const events = await getAllEvents();
             setListEvent(events.data.data);
-            console.log(events.data.data);
         } catch (error) {
             console.log(error)
         }
@@ -33,49 +31,49 @@ export const EventAdmin = () => {
         fetchData();
     }, [])
 
-    function voirAffiche(){
-        if(!affiche){
-            setDisplay("block");
-            setOpacity("0,6");
-            setAffiche(true);
-            console.log("On affiche + " + affiche);
-        }else{
-            setAffiche(false);
-            setDisplay("none");
-            setOpacity("1");
-            console.log("nn" + affiche + "  " + display);
-        }
+    function handleContextMenuEvent(id){
+        setSelectEvent(id)
     }
 
+    const handleSetAddEventSection = () => {
+        setAddEventSection(!addEventSection)
+    }
+   
     return (
         <div className="eventAdmin">
             <div className="headEventAdmin">
                 <h1>Evenements</h1>
-                <a href="#ajouterEvenement" className="btnAddEvent" >Ajouter evenement</a>
+                <span className="btnAddEvent" onClick={handleSetAddEventSection}>Ajouter evenement</span>
             </div>
             <div className="allAdminEvent"> 
                     {listEvent.map((event) => {
+                    let dateFormat = new moment(event.date_event).format("DD-MM-YYYY HH:mm");
                     return (
-                        <div className="oneAdminEvent" key={event.id_event}>
-                            <div onClick={voirAffiche} className="optionActive" style={{display:display}}>
-                                <img onClick={voirAffiche} className="dotImg2" alt="Apres click affiche les options modifier et supprimer" src={dotImg} />
+                        <div className={`oneAdminEvent ${selectEvent === event.id_event ? 'hidden' : ''}`} key={event.id_event}>
+                            {selectEvent === event.id_event && <div className="optionEventAdmin">
+                                <div  onClick={() => deleteEvent(event.id_event)} className="supprimerOptionEventAdmin">
+                                    <FaTrashAlt/>
+                                    <span>Supprimer</span>
+                                    
+                                </div>
+                            </div>}
+                            <div className="oneAdminEvent-card">
+                                <div className="headOneAdminEvent">
+                                    <div>{event.name_event}</div>
+                                    {selectEvent === event.id_event ? 
+                                    <FaTimes onClick={() => handleContextMenuEvent(null)}/>
+                                    :
+                                    <BsThreeDotsVertical onClick={() => handleContextMenuEvent(event.id_event)}/>}
+                                </div>
+                                <div className="imgAdminEvent" style={{backgroundImage:`url(${url+event.link_image})`}}>
+                                </div>
+                                <div className="infoAdminEvent">
+                                    <div>{dateFormat}</div>
+                                    <div className="nb_inscrit"></div>
+                                </div>
+                                <div>{event.desc_event}</div>
                             </div>
-                            <div className="optionEventAdmin" style={{display:display}}>
-                                <div className="modifierOptionEventAdmin">{">"} Modifier</div>
-                                <div className="inscriptionOptionEventAdmin">{">"} Inscription</div>
-                                <div  onClick={() => deleteEvent(event.id_event)} className="supprimerOptionEventAdmin">{">"} Supprimer</div>
-                            </div>
-                            <div className="headOneAdminEvent">
-                                <div>{event.name_event}</div>
-                                <img onClick={voirAffiche} className="dotImg" alt="Apres click affiche les options modifier et supprimer" src={dotImg} />
-                            </div>
-                            <div className="imgAdminEvent" style={{backgroundImage:`url(${url+event.link_image})`}}>
-                            </div>
-                            <div className="infoAdminEvent">
-                                <div>{event.date_event}</div>
-                                <div className="nb_inscrit"></div>
-                            </div>
-                            <div>{event.desc_event}</div>
+                            
                         </div>
                         )
                     })}
