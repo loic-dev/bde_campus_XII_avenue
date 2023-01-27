@@ -73,7 +73,7 @@ CREATE TABLE register (
 CREATE TABLE panel (
    id_panel UUID,
    id_image UUID,
-   desc_panel VARCHAR(500),
+   desc_panel TEXT,
    title_panel VARCHAR(255),
    PRIMARY KEY(id_panel),
    CONSTRAINT fk_image
@@ -86,7 +86,7 @@ CREATE TABLE partner (
    id_partner UUID,
    id_image UUID,
    name_partner VARCHAR(255),
-   desc_partner VARCHAR(255),
+   desc_partner VARCHAR(500),
    PRIMARY KEY(id_partner),
    CONSTRAINT fk_image
       FOREIGN KEY(id_image) 

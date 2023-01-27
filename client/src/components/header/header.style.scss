@@ -9,6 +9,10 @@ $headerHeight: 70px;
     background-color: $primary-color;
 }
 
+#logo{
+    width: 60px;
+}
+
 .header-container{
     position: relative;
 }
@@ -147,6 +151,10 @@ $headerHeight: 70px;
     .header{
         display: flex;
         justify-content: center;
+    }
+
+    #logo{
+        width: 75px;
     }
     
     .header-container{

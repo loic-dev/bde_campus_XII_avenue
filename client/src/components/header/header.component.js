@@ -6,7 +6,6 @@ import { faBars, faTimes, faChevronRight  } from '@fortawesome/free-solid-svg-ic
 import {AiFillInstagram,AiFillCalendar,AiFillHome,AiFillPhone,AiFillFacebook} from "react-icons/ai"
 
 
-
 export const HeaderComponent = () => {
     const [headerMobile, setHeaderMobile] = useState(false);
 
@@ -17,7 +16,7 @@ export const HeaderComponent = () => {
             <div className="header-container">
                 <div className="container">
                     <div className="logo">
-                        logo
+                        <img src="../logo.png" id="logo" />
                     </div>
                     <div className="mobileMenuIconContainer">
                         <span onClick={() => setHeaderMobile(!headerMobile)}><FontAwesomeIcon className="mobileMenuIcon"  icon={headerMobile ? faTimes : faBars}/></span>
@@ -48,7 +47,7 @@ export const HeaderComponent = () => {
                             </Link>
                         </li> 
                         <li className="social">
-                            <a target="_blank" href="https://www.instagram.com">
+                            <a target="_blank" href="https://www.instagram.com/lespionniers_/">
                                 <AiFillInstagram fontSize={"1.4rem"}/>
                                 <span>Suivez nous sur Instagram</span>
                             </a>

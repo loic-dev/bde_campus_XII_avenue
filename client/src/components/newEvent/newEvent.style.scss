@@ -1,7 +1,7 @@
 @import "./../../utils/global.style.scss";
 
 .newEvent{
-    width: 850px;
+    width: 100%;
 }
 
 .btnAddEvent2{
@@ -13,6 +13,11 @@
     width: 170px;
     margin-top: 20px;
     margin-bottom: 40px;
+}
+
+.flexContainer{
+    display: flex;
+    flex-direction: column;
 }
 
 .formNewEvent{  
@@ -61,33 +66,4 @@ input[type='radio']:checked:after {
 
 .labelRadio{
     vertical-align: 5px;
-}
-
-@media screen and (max-width:1160px) {
-    .newEvent{
-        width: 767px;
-    }
-}
-
-@media screen and (max-width:900px) {
-    .newEvent{
-        width: 500px;
-    }
-}
-
-@media screen and (max-width:$mobile-max) {
-    .newEvent{
-        width: 440px;
-    }
-
-    .btnAddEvent2{
-        margin: auto;
-        margin-top: 15px;
-    }
-}
-
-@media screen and (max-width:$mobile-min) {
-    .newEvent{
-        width: 350px;
-    }
 }
