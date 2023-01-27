@@ -51,6 +51,18 @@ export function createEventService(send){
     }})
 }
 
+export function createPartnerService(send){
+    return axios.post(`${url}api/partner/create`, send,  {headers:{
+        "Authorization": sendHeaderToken,
+    }})
+}
+
+export function deletePartnerService(send){
+    return axios.post(`${url}api/partner/delete`, send,  {headers:{
+        "Authorization": sendHeaderToken,
+    }})
+}
+
 
 
 

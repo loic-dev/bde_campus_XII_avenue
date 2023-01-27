@@ -4,11 +4,12 @@ import { EventAdmin } from "../components/eventAdmin/eventAdmin.component"
 import { NewEvent } from "../components/newEvent/newEvent.component"
 import './admin.style.scss';
 import {  useState , useEffect} from "react";
+import { HomeAdmin } from "../components/homeAdmin/homeAdmin.component";
 
 export const AdminPage = () => {
 
 
-    const menu = ['événements','accueil']
+    const menu = ['accueil','événements']
     const [menuSelect, setMenuSelect] = useState(0)
     const [width, setWidth] = useState(window.innerWidth);
 
@@ -26,9 +27,9 @@ export const AdminPage = () => {
 
     const componentChoice = () => {
         switch (menuSelect) {
-            case 1:
-                return <div>fonctionnalité bientot disponible</div>
             case 0:
+                return <HomeAdmin/>
+            case 1:
                 return <EventAdmin/>
             default:
                 break;

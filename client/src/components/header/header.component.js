@@ -6,6 +6,8 @@ import { faBars, faTimes, faChevronRight  } from '@fortawesome/free-solid-svg-ic
 import {AiFillInstagram,AiFillCalendar,AiFillHome,AiFillPhone,AiFillFacebook} from "react-icons/ai"
 
 
+
+
 export const HeaderComponent = () => {
     const [headerMobile, setHeaderMobile] = useState(false);
 

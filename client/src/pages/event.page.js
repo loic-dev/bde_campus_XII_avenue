@@ -1,6 +1,5 @@
 import { HeaderComponent } from "../components/header/header.component"
 import './event.style.scss';
-import { HeadNextEvent } from "../components/headNextEvent/headNextEvent.component";
 import { ListEvent } from "../components/listEvent/listEvent.component";
 import { useEffect, useState } from "react";
 import { getAllEvents } from "../utils/API";
@@ -59,7 +58,7 @@ export const EventPage = () => {
             <HeaderComponent/>
             <div className="wrapper">
                 <div className="container-background">
-                    <span className="page-title">Evénéments</span>
+                    <span className="page-title">événements</span>
                     <div className="eventpage-next-event">
                         {listEvent.length !== 0 && <NextEventPanel name={listEvent[0].name_event}
                                     handleAlert={handleAlert}
