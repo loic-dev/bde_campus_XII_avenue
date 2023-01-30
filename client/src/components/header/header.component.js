@@ -54,12 +54,12 @@ export const HeaderComponent = () => {
                                 <span>Suivez nous sur Instagram</span>
                             </a>
                         </li>
-                        <li className="social">
+                       {/* <li className="social">
                             <a target="_blank" className="showDesktop" href="https://www.facebook.com">
                                 <AiFillFacebook fontSize={"1.4rem"}/>
                                 <span>Suivez nous sur facebook</span>
                             </a>
-                        </li>
+</li>*/}
                     </ul>
                 </div>
             </div>       
