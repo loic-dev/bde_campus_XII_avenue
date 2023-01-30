@@ -38,9 +38,9 @@ export const EventAdmin = () => {
     }, [])
 
     function handleContextMenuEvent(e,id,name){
-
+       
         e.stopPropagation();
-
+       
         const closeContextMenu = (e) => {
             e.stopPropagation()
             setSelectEvent('','')
@@ -93,7 +93,11 @@ export const EventAdmin = () => {
                                         <span>Supprimer</span>
                                         
                                     </div>
-                                    <div  onClick={() => setSectionActive(2)} >
+                                    <div  onClick={(e) => {
+                                        e.stopPropagation();
+                                        
+                                        setSectionActive(2)
+                                    }} >
                                         <BiChevronRight/>
                                         <span>Inscriptions</span>
                                     </div>
@@ -104,7 +108,7 @@ export const EventAdmin = () => {
                                         {selectEvent.id === event.id_event ? 
                                         <FaTimes onClick={(e) => handleContextMenuEvent(e,null,null)}/>
                                         :
-                                        <BsThreeDotsVertical onClick={(e) => handleContextMenuEvent(e,event.id_event, event.name_event)}/>}
+                                        <BsThreeDotsVertical onClick={(e) => handleContextMenuEvent(e, event.id_event, event.name_event)}/>}
                                     </div>
                                     <div className="imgAdminEvent" style={{backgroundImage:`url(${url+event.link_image})`}}>
                                     </div>

@@ -59,7 +59,7 @@ export const AdminPage = () => {
                         :
                         <div className="list-menu">
                             {menu.map((item,index) => {
-                                return <span onClick={() => handleChangeMenu(index)} className={`item-menu ${index === menuSelect ? 'select' : ''}`}>{item}</span>
+                                return <span key={index} onClick={() => handleChangeMenu(index)} className={`item-menu ${index === menuSelect ? 'select' : ''}`}>{item}</span>
                             })}
                         </div>}
                         {/*<NavAdmin/>*/}

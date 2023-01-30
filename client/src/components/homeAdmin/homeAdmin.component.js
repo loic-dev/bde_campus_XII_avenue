@@ -110,7 +110,7 @@ export const HomeAdmin = ({}) => {
                     <tbody>
                         {listPartner.map(partner => {
                             return (
-                                <tr className="tab-body">
+                                <tr key={partner.id_partner} className="tab-body">
                                     <td>{partner.name_partner}</td>
                                     <td>{partner.desc_partner}</td>
                                     <td><a href={url+partner.link_image} target="_blank">Lien image</a></td>

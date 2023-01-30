@@ -42,7 +42,7 @@ export const RegisterAdmin = ({id_event, name_event}) => {
                     <tbody>
                         {listRegister.map(register => {
                             return (
-                                <tr className="tab-body">
+                                <tr key={register.id_register} className="tab-body">
                                     <td>{register.lastname_register}</td>
                                     <td>{register.firstname_register}</td>
                                     <td>{register.email_register}</td>
