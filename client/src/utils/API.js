@@ -63,6 +63,12 @@ export function deletePartnerService(send){
     }})
 }
 
+export function getRegisterService(id_event){
+    return axios.get(`${url}api/event/registers?id_event=${id_event}`, {headers:{
+        "Authorization": sendHeaderToken,
+    }})
+}
+
 
 
 

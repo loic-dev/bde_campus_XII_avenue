@@ -41,13 +41,13 @@ export const HeaderComponent = () => {
                                 <FontAwesomeIcon className="chevronLinkIcon"  icon={faChevronRight}/>
                             </Link>
                         </li> 
-                        <li>
+                        {/*}<li>
                             <Link className="link" to="/contact">
                                 <AiFillPhone className="linkIcon" fontSize={"1.4rem"}/>
                                 <span>contact</span>
                                 <FontAwesomeIcon className="chevronLinkIcon"  icon={faChevronRight}/>
                             </Link>
-                        </li> 
+    </li> */}
                         <li className="social">
                             <a target="_blank" href="https://www.instagram.com/lespionniers_/">
                                 <AiFillInstagram fontSize={"1.4rem"}/>
