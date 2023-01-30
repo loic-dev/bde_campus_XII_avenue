@@ -9,6 +9,22 @@ export const HomeAdmin = ({}) => {
   
     const [listPartner, setListPartner] = useState([]);
     const [err, setErr] = useState(null);
+    const [isMobile, setIsMobile] = useState(false)
+ 
+    //choose the screen size 
+    const handleResize = () => {
+    if (window.innerWidth < 720) {
+        setIsMobile(true)
+    } else {
+        setIsMobile(false)
+    }
+    }
+
+    // create an event listener
+    useEffect(() => {
+        handleResize();
+        window.addEventListener("resize", handleResize)
+    })
     const [addPartnerValue, setAddPartnerValue] = useState({
         show:false,
         name:'',
@@ -98,6 +114,29 @@ export const HomeAdmin = ({}) => {
             {err && <Alert message={err} status="error"/>}
             <div className="section-partners">
                 <span>Liste des partenaires</span>
+                {isMobile ?
+                <table>
+                    <tbody>
+                        {listPartner.map(partner => {
+                            return (
+                                <tr key={partner.id_partner} className="tab-body-mobile">
+                                    <td>
+                                        <span><strong>Nom : </strong> {partner.name_partner}</span>
+                                        <span><strong>Prénom : </strong> {partner.desc_partner}</span>
+                                        <span><strong>Icone : </strong><a href={url+partner.link_image} target="_blank">Lien image</a></span>
+                                        <span className="tab-delete-option">
+                                            
+                                            <span className="tab-icon danger"><BiTrash onClick={() => deletePartner(partner.id_partner)}/></span>
+                                        </span>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+                
+                :
+
                 <table>
                     <thead>
                         <tr className="tab-head">
@@ -105,6 +144,7 @@ export const HomeAdmin = ({}) => {
                             <th>Description</th>
                             <th>Icone</th>
                             <th></th>
+                            
                         </tr>
                     </thead>
                     <tbody>
@@ -139,6 +179,9 @@ export const HomeAdmin = ({}) => {
                         }
                     </tbody>
                 </table>
+                }
+
+                
                 <div className="container-btn">
                     <span className="btnAddEvent" onClick={addPartner}>Ajouter</span>
                 </div>

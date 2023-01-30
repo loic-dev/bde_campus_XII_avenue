@@ -2,9 +2,11 @@ import { HeaderComponent } from "../components/header/header.component"
 import './event.style.scss';
 import { ListEvent } from "../components/listEvent/listEvent.component";
 import { useEffect, useState } from "react";
+import { Alert } from "../components/alert/alert.component";
 import { getAllEvents } from "../utils/API";
 import { Spinner } from "../components/spinner/spinner.component";
 import { NextEventPanel } from "../components/nextEventPanel/nextEventPanel.component";
+import { FooterComponent } from "../components/footer/footer.component"
 
 export const EventPage = () => {
 
@@ -55,6 +57,7 @@ export const EventPage = () => {
 
     return (
         <section className="eventPage">
+            <Alert message={alert.message} status={alert.status}/>
             <HeaderComponent/>
             <div className="wrapper">
                 <div className="container-background">
@@ -74,7 +77,7 @@ export const EventPage = () => {
                 {listEvent.length === 0 ? <Spinner/> : <ListEvent listEvent={listEvent}/>}
             </div>
             
-           
+            <FooterComponent/>
         </section>  
     )
   

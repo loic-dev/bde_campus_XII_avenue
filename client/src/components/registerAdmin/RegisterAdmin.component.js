@@ -7,6 +7,22 @@ import { getRegisterService } from "../../utils/API";
 export const RegisterAdmin = ({id_event, name_event}) => {
 
     const [listRegister, setListRegister] = useState([]);
+    const [isMobile, setIsMobile] = useState(false)
+ 
+    //choose the screen size 
+    const handleResize = () => {
+    if (window.innerWidth < 720) {
+        setIsMobile(true)
+    } else {
+        setIsMobile(false)
+    }
+    }
+
+    // create an event listener
+    useEffect(() => {
+        handleResize();
+        window.addEventListener("resize", handleResize)
+    })
 
     const fetchData = async () => {
         try {
@@ -30,6 +46,23 @@ export const RegisterAdmin = ({id_event, name_event}) => {
             <h1>événements - Inscription "{name_event}"</h1>
             <span>Nombre d'inscris : {listRegister.length}</span>
             <div className="tab">
+                {isMobile ? <table>
+                    <tbody>
+                        {listRegister.map(register => {
+                            return (
+                                <tr key={register.id_register} className="tab-body-mobile">
+                                    <td>
+                                        <span><strong>Nom : </strong> {register.lastname_register}</span>
+                                        <span><strong>Prénom : </strong> {register.firstname_register}</span>
+                                        <span><strong>E-mail : </strong> {register.email_register}</span>
+                                        <span><strong>Commentaire : </strong> {register.comment_register}</span>
+                                    </td>
+                                </tr>
+                            )
+                        })}
+                    </tbody>
+                </table>
+                :
             <table>
                     <thead>
                         <tr className="tab-head">
@@ -51,7 +84,7 @@ export const RegisterAdmin = ({id_event, name_event}) => {
                             )
                         })}
                     </tbody>
-                </table>
+                </table>}
 
             </div>
         </div>

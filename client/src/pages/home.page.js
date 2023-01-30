@@ -11,6 +11,7 @@ import { NextEventPanel } from "../components/nextEventPanel/nextEventPanel.comp
 import { Alert } from "../components/alert/alert.component";
 import "../components/rowPanelHome/template1.style.scss";
 import "../components/rowPanelHome/template2.style.scss";
+import { FooterComponent } from "../components/footer/footer.component"
 
 export const HomePage = () => {
 
@@ -97,7 +98,7 @@ export const HomePage = () => {
                 </div>
 
 
-            </div>
+            </div>  
             
             
             <div className="container-row">
@@ -144,6 +145,7 @@ export const HomePage = () => {
                     </div>
                 </div>
             </div>
+            <FooterComponent/>
         </section>
         
     )
