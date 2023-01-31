@@ -43,7 +43,7 @@ export const registerService = async (req,res) => {
                     console.log(`Something went wrong while the email sending : ${firstname} ==> `+err)
                     throw new Error("Something went wrong while the email sending");
                 })*/
-                return res.status(200).send({text:"User added sucessfully, an email has been sent to you"})
+                return res.status(200).send({text:"User added sucessfully, please wait while admin valid your account"})
             }).catch((err) => {
                 console.log(err)
                 throw new Error("Something went wrong in database");
