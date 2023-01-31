@@ -1,3 +1,5 @@
+@import "./../../utils/global.style.scss";
+
 footer {
     width: 100%;
     text-align: center;
@@ -13,6 +15,6 @@ footer {
 
 .linkLinkedin{
     text-decoration: none;
-    color : white;
+    color : $light-color;
     font-weight: 500;
 }
