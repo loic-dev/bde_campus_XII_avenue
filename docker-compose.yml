@@ -46,7 +46,7 @@ services:
     command: node index.js
     volumes:
       - ./api/:/app
-      - ./client/build:/app/client
+      - ./client/build:/app/build
       - ./api/node_modules:/app/node_modules
     ports:
       - "${API_PORT}:${API_PORT}"
