@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./header.style.scss";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars, faTimes, faChevronRight  } from '@fortawesome/free-solid-svg-icons'
-import {AiFillInstagram,AiFillCalendar,AiFillHome,AiFillPhone,AiFillFacebook} from "react-icons/ai"
+import {AiFillInstagram,AiFillCalendar,AiFillHome} from "react-icons/ai"
 
 
 
@@ -18,7 +18,7 @@ export const HeaderComponent = () => {
             <div className="header-container">
                 <div className="container">
                     <div className="logo">
-                        <img src="../logo.png" id="logo" />
+                        <img alt="logo" src="../logo.webp" id="logo" />
                     </div>
                     <div className="mobileMenuIconContainer">
                         <span onClick={() => setHeaderMobile(!headerMobile)}><FontAwesomeIcon className="mobileMenuIcon"  icon={headerMobile ? faTimes : faBars}/></span>
@@ -49,7 +49,7 @@ export const HeaderComponent = () => {
                             </Link>
     </li> */}
                         <li className="social">
-                            <a target="_blank" href="https://www.instagram.com/lespionniers_/">
+                            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/lespionniers_/">
                                 <AiFillInstagram fontSize={"1.4rem"}/>
                                 <span>Suivez nous sur Instagram</span>
                             </a>

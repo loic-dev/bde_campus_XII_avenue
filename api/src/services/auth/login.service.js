@@ -40,7 +40,7 @@ export const loginService = async (req, res) => {
         //verify confirm user email
         if(!user.verify){
             console.log(login + " : user email hasn't been confirmed")
-            return res.status(401).send({error:"User email hasn't been confirmed"});
+            return res.status(401).send({error:"User email hasn't been confirmed or hasn't been accepted by admin yet"});
         }
         
 

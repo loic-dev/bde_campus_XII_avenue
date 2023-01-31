@@ -1,7 +1,5 @@
 import { HeaderComponent } from "../components/header/header.component"
-import { NavAdmin } from "../components/navAdmin/navAdmin.component"
 import { EventAdmin } from "../components/eventAdmin/eventAdmin.component"
-import { NewEvent } from "../components/newEvent/newEvent.component"
 import './admin.style.scss';
 import {  useState , useEffect} from "react";
 import { HomeAdmin } from "../components/homeAdmin/homeAdmin.component";
@@ -62,10 +60,8 @@ export const AdminPage = () => {
                                 return <span key={index} onClick={() => handleChangeMenu(index)} className={`item-menu ${index === menuSelect ? 'select' : ''}`}>{item}</span>
                             })}
                         </div>}
-                        {/*<NavAdmin/>*/}
                         <div className="adminContent">
                             {componentChoice()}
-                           {/*<NewEvent/>*/}
                         </div>
                     </div> 
                 </div>

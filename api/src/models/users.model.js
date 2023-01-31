@@ -12,7 +12,7 @@ export const getUserByEmail = async (email) => {
 
 
 export const addUser = (id_user,id_role, lastname,firstname,email, password, datenow) => {
-    return database.query("INSERT INTO users (id_user, id_role, lastname, firstname, email, password, verify, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8, $9)",[id_user,id_role,lastname,firstname,email,password,true,datenow,datenow])
+    return database.query("INSERT INTO users (id_user, id_role, lastname, firstname, email, password, verify, created_at, updated_at) VALUES ($1,$2,$3,$4,$5,$6,$7,$8, $9)",[id_user,id_role,lastname,firstname,email,password,false,datenow,datenow])
 }
 
 export const confirmEmailDatabase = (userId) => {

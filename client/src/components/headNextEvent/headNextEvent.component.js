@@ -1,10 +1,8 @@
 import "./headNextEvent.style.scss";
-import img from "../../images/event_page_background2.png"
 
-export const  HeadNextEvent = ({}) => {
+export const  HeadNextEvent = () => {
     return (
         <div className="eventHeader">
-            <img src={img}></img> 
             <div className="infoNextEvent">
                 <div className="infoNextEventImg"></div>
                 <div className="infoNextEventDesc">

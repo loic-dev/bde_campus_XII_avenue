@@ -1,12 +1,10 @@
 import { HeaderComponent } from "../components/header/header.component"
-import { RowPanelHome } from "../components//rowPanelHome/rowPanelHome.component"
 import './home.style.scss';
 import "video-react/dist/video-react.css";
 import { Player ,BigPlayButton} from 'video-react';
 import { PartnerList } from "../components/partnerList/partnerList.component";
-import { getNextEventAPI, getPanelsAPI } from "../utils/API";
+import { getNextEventAPI } from "../utils/API";
 import { useState , useEffect} from "react";
-import { HeadNextEvent } from "../components/headNextEvent/headNextEvent.component";
 import { NextEventPanel } from "../components/nextEventPanel/nextEventPanel.component";
 import { Alert } from "../components/alert/alert.component";
 import "../components/rowPanelHome/template1.style.scss";
@@ -15,7 +13,6 @@ import { FooterComponent } from "../components/footer/footer.component"
 
 export const HomePage = () => {
 
-    const [listPanels, setListPanels] = useState([])
     const [nextEvent, setNextEvent] = useState(null);
     const [alert, setAlert] = useState({
         message:"",
@@ -45,8 +42,6 @@ export const HomePage = () => {
         
         let fetchData = async () => {
             try {
-                const panel = await getPanelsAPI();
-                setListPanels(panel.data.data);
                 const nextEvent = await getNextEventAPI();
                 setNextEvent(nextEvent.data.data);
             } catch (error) {
@@ -88,7 +83,7 @@ export const HomePage = () => {
                 <div className="video-container">
                     <Player
                         playsInline
-                        poster="../../bg_teaser.png"
+                        poster="../../bg_teaser.webp"
                         src="../../teaser.mp4"
                         >
 
@@ -124,7 +119,7 @@ export const HomePage = () => {
                         Pour plus de chiffres, le Campus XIIE Avenue c’est : 80% des formations en apprentissage, 1000 étudiants formés tous les ans, une communauté implantée de plusieurs milliers d’étudiants entrepreneurs, formateurs et partenaires. Plus de 110 formations professionnelles interentreprises.
                         <br></br><br></br>
                         Le tout sur trois sites de formation: Rodez, Millau et Saint-Affrique.</div>
-                    <div className="panel-image" style={{backgroundImage:`url(../../campus.png)`}}></div>
+                    <div className="panel-image" style={{backgroundImage:`url(../../campus.webp)`}}></div>
                 </div>
             </div> 
         </div>
