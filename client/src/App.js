@@ -3,6 +3,7 @@ import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
+import packageJson from '../package.json';
 import { NotFoundPage } from './pages/notFound/notFound.page';
 import { LoginPage } from './pages/login/login.page';
 import { HomePage } from './pages/home.page';
@@ -45,6 +46,7 @@ function App() {
   return (
     <div className="App">
         <RouterProvider router={router} />
+        <div className='version'>{packageJson.name} - {packageJson.version}</div>
     </div>
   );
 }
