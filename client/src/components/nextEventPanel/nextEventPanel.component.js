@@ -79,7 +79,7 @@ export const NextEventPanel = ({id,name,handleAlert, date, linkImage, descriptio
     const dateFormat = new moment(date).format("DD-MM-YYYY HH:mm");
     return (
         <>
-            {popupInfo && <Popup title="information" action={changeStateRegister} close={changeStatePopupInfo} name={name} button="Passer à l'inscription">
+            {popupInfo && <Popup title="Informations" action={changeStateRegister} close={changeStatePopupInfo} name={name} button="Passer à l'inscription">
 
                 <InfoEventTemplate link={linkImage}  desc={description} />
 
@@ -87,7 +87,7 @@ export const NextEventPanel = ({id,name,handleAlert, date, linkImage, descriptio
             
             
             
-            {popupRegister && <Popup title="inscription" action={handleSubmitRegister} close={changeStateRegister} name={name}  button="S'inscrire">
+            {popupRegister && <Popup title="Inscription" action={handleSubmitRegister} close={changeStateRegister} name={name}  button="S'inscrire">
                 <RegisterEventTemplate register={register} setRegister={handleChangeRegister} />
             </Popup>}
             <section className="next-event-panel">
@@ -100,8 +100,8 @@ export const NextEventPanel = ({id,name,handleAlert, date, linkImage, descriptio
                             <span className="ne-name">{name}</span>
                             <span className="ne-date">{dateFormat}</span>
                             <div className="container-buttons">
-                                <button onClick={changeStatePopupInfo}>information</button>
-                                {signup && <button onClick={changeStateRegister}>inscription</button>}
+                                <button onClick={changeStatePopupInfo}>Informations</button>
+                                {signup && <button onClick={changeStateRegister}>Inscription</button>}
                             </div>
                         </div>
                     </div>

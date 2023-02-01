@@ -1,7 +1,6 @@
 import { HeaderComponent } from "../components/header/header.component"
 import './home.style.scss';
 import "video-react/dist/video-react.css";
-import { Player ,BigPlayButton} from 'video-react';
 import { PartnerList } from "../components/partnerList/partnerList.component";
 import { getNextEventAPI } from "../utils/API";
 import { useState , useEffect} from "react";
@@ -81,14 +80,9 @@ export const HomePage = () => {
             <PartnerList/>
             <div className="video-wrapper">
                 <div className="video-container">
-                    <Player
-                        playsInline
-                        poster="../../bg_teaser.webp"
-                        src="../stream"
-                        >
-
-                            <BigPlayButton position="center" />
-                        </Player>
+                    <video controls poster="../bg_teaser.webp">
+                        <source src="../stream" type="video/mp4" />
+                    </video>
 
                 </div>
 
@@ -101,8 +95,8 @@ export const HomePage = () => {
                     <div className={`container-panel`}>
                         <div className="panel-image" style={{backgroundImage:`url(../../rocket.svg)`}}></div>
                         <div className="container-column">
-                            <span className="panel-title">Qui somme nous ?</span>
-                            <div className="panel-description">Le BDE (Bureau des Élèves) Campus XII Avenue est une association représentative des différentes formations de la CCI (Chambre de Commerce et d'Industrie) de Rodez.<br></br><br></br>Elle a pour objectif principal de rassembler les étudiants de la CCI, de créer une synergie entre les différents BDE de la CCI, ainsi que de Rodez, et d'organiser des événements stimulants pour les étudiants. L'association est ouverte à tous les étudiants de la CCI et vise à créer une communauté dynamique, inclusive et stimulante pour les étudiants de la ville.<br></br><br></br>Au cours de l'année, l'association organisera divers événements tels que des soirées au loft, des AfterWork, des tournois Fifa, des galas, et bien d'autres encore, offrant ainsi une variété de divertissement pour tous les étudiants.</div>
+                            <span className="panel-title">Qui sommes nous ?</span>
+                            <div className="panel-description">Le BDE (Bureau des Élèves) Campus XII Avenue est une association représentative des différentes formations de la CCI (Chambre de Commerce et d'Industrie) de Rodez.<br></br><br></br>Elle a pour objectif principal de rassembler les étudiants de la CCI, de créer une synergie entre les différents BDE de la CCI, ainsi que de Rodez, et d'organiser des événements stimulants pour les étudiants. L'association est ouverte à tous les étudiants de la CCI et vise à créer une communauté dynamique, inclusive et stimulante pour les étudiants de la ville.<br></br><br></br>Au cours de l'année, l'association organisera divers événements tels que des soirées au Loft 89, des AfterWork, des tournois FIFA, des galas, et bien d'autres encore, offrant ainsi une variété de divertissement pour tous les étudiants.</div>
                         </div>
                     </div>
                 </div>
@@ -111,12 +105,12 @@ export const HomePage = () => {
             </div>
             <div className="row-panel template2">
             <div className="container-panel ">
-                <span className="panel-title">Le campus 12e avenue</span>
+                <span className="panel-title">Le Campus XII Avenue</span>
                 <div className="container-row">
                     <div className="panel-description">
-                        Le campus 12e avenue, de la CCI Aveyron, est un établissement qui regroupe une multitude d’activités, d’enseignements et de formations. Des formations dites initiales pour les étudiants et des formations professionnelles continues pour les professionnels.
+                        Le campus XII avenue, de la CCI Aveyron, est un établissement qui regroupe une multitude d’activités, d’enseignements et de formations. Des formations dites initiales pour les étudiants et des formations professionnelles continues pour les professionnels.
                         <br></br><br></br>
-                        Pour plus de chiffres, le Campus XIIE Avenue c’est : 80% des formations en apprentissage, 1000 étudiants formés tous les ans, une communauté implantée de plusieurs milliers d’étudiants entrepreneurs, formateurs et partenaires. Plus de 110 formations professionnelles interentreprises.
+                        Pour plus de chiffres, le Campus XII Avenue c’est : 80% des formations en apprentissage, 1000 étudiants formés tous les ans, une communauté implantée de plusieurs milliers d’étudiants entrepreneurs, formateurs et partenaires. Plus de 110 formations professionnelles interentreprises.
                         <br></br><br></br>
                         Le tout sur trois sites de formation: Rodez, Millau et Saint-Affrique.</div>
                     <div className="panel-image" style={{backgroundImage:`url(../../campus.webp)`}}></div>
@@ -131,7 +125,7 @@ export const HomePage = () => {
                         <div className="container-column">
                             <span className="panel-title">Nos objectifs de mission</span>
                             <div className="panel-description">L’objectif de l’association est de promouvoir les activités étudiantes (culturelles, sportives,
-                            médiatiques) au sein des différentes écoles et formations du campus. Et de faire valoir le CAMPUS XIIe AVENUE dans son ensemble auprès des acteurs locaux (entreprises, collectivités, associations) et du grand public.
+                            médiatiques) au sein des différentes écoles et formations du campus. Et de faire valoir le CAMPUS XII AVENUE dans son ensemble auprès des acteurs locaux (entreprises, collectivités, associations) et du grand public.
                             <br></br><br></br>
                             Avec des étudiants aux profils très variés, des établissements différents, de nombreuses filières,
                             des rythmes d’études différents; gérer une communication efficace et proposer des évènements n’est pas une tâche facile avec des bureaux étudiants isolés, d’où la création de cette association.
