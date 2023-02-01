@@ -8,7 +8,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 import pkg from 'pg';
 const { Pool } = pkg;
-
+import fs from 'fs';
 export const app = express();
 
 
@@ -25,6 +25,21 @@ app.use(morgan('combined'));
 
 //HTTP router
 app.use("/api", router);
+
+
+app.get('/stream',function(req,res){
+
+    // The path of the video from local file system
+    const videoPath = path.join(__dirname, 'build/teaser.mp4');
+
+    // 200 is OK status code and type of file is mp4
+    res.writeHead(200, {'Content-Type': 'video/mp4'})
+
+    // Creating readStream for th HTML video tag
+    fs.createReadStream(videoPath).pipe(res)
+})
+
+
 
 
 //PUBLIC ROUTER
