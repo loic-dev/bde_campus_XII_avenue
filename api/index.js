@@ -29,14 +29,31 @@ app.use("/api", router);
 
 app.get('/stream',function(req,res){
 
-    // The path of the video from local file system
-    const videoPath = path.join(__dirname, 'build/teaser.mp4');
+  const range = req.headers.range;
+      if (!range) {
+          res.status(400).send("Require Range Header");
+          return
+      }
 
-    // 200 is OK status code and type of file is mp4
-    res.writeHead(200, {'Content-Type': 'video/mp4'})
+      const videoPath = 'build/teaser.mp4';
+      const videoSize = fs.statSync(videoPath).size;
 
-    // Creating readStream for th HTML video tag
-    fs.createReadStream(videoPath).pipe(res)
+      const CHUNK_SIZE = 10 ** 6 // 10 power of 6 is 1MB
+      const start = Number(range.replace(/\D/g, ""));// replace all non-digit characters to empty string and parse into Number
+
+      // calculate the ending byte we want to response back to client. If it reached the end of file (total video size)
+      //Then send back the video size instead
+      const end = Math.min(videoSize - 1, start + CHUNK_SIZE);
+      const contentLength = end - start + 1;
+      const header = {
+          "Content-Range": `bytes ${start}-${end}/${videoSize}`,        
+          "Accept-Range": "bytes",
+          "Content-Length": contentLength,
+          "Content-Type": "video/mp4",
+      };
+      res.writeHead(206, header)
+      const readStream = fs.createReadStream(videoPath, { start, end });
+      readStream.pipe(res)
 })
 
 

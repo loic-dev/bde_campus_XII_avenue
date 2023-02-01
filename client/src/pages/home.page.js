@@ -84,7 +84,7 @@ export const HomePage = () => {
                     <Player
                         playsInline
                         poster="../../bg_teaser.webp"
-                        src="https://bde.campus12avenue.fr/stream"
+                        src="../stream"
                         >
 
                             <BigPlayButton position="center" />
